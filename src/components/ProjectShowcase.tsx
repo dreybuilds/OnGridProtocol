@@ -28,7 +28,7 @@ const solarProjects: SolarProject[] = [
     co2Reduction: 500,
     carbonCredits: 500,
     beneficiaries: 5000,
-    image: '/Kenya-solar.jpeg',
+    image: '/Kenya-Solar.jpeg',
   },
   {
     id: 2,
