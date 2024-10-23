@@ -43,7 +43,7 @@ function StatCard({ label, value, unit, animate }: StatCardProps) {
 
   useEffect(() => {
     if (animate) {
-      let start = 0
+      const start = 0
       const end = value
       const duration = 2000
       let startTimestamp: number | null = null

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Sun } from 'lucide-react'
+import Image from 'next/image'
 
 interface SolarProject {
   id: number;
@@ -27,7 +28,7 @@ const solarProjects: SolarProject[] = [
     co2Reduction: 500,
     carbonCredits: 500,
     beneficiaries: 5000,
-    image: '/Kenya-solar.jpeg?height=400&width=600',
+    image: '/Kenya-solar.jpeg',
   },
   {
     id: 2,
@@ -40,7 +41,7 @@ const solarProjects: SolarProject[] = [
     co2Reduction: 1200,
     carbonCredits: 1200,
     beneficiaries: 10000,
-    image: '/Tanzania-solar.jpeg?height=400&width=600',
+    image: '/Tanzania-solar.jpeg',
   },
   {
     id: 3,
@@ -53,7 +54,7 @@ const solarProjects: SolarProject[] = [
     co2Reduction: 800,
     carbonCredits: 800,
     beneficiaries: 3000,
-    image: '/Uganda-solar.jpeg?height=400&width=600',
+    image: '/Uganda-solar.jpeg',
   },
 ]
 
@@ -77,7 +78,7 @@ function ProjectCard({ project }: { project: SolarProject }) {
 
   return (
     <div className="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
-      <img src={project.image} alt={project.title} className="w-full h-48 object-cover" />
+      <Image src={project.image} alt={project.title} width={600} height={400} className="w-full h-48 object-cover" />
       <div className="p-6">
         <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
         <div className="flex justify-between mb-2">

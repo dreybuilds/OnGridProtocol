@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10 text-center text-white">
         <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Invest in Africa's Sustainable Future
+          Invest in Africa&apos;s Sustainable Future
         </h1>
         <p className="text-xl md:text-2xl mb-8">
           Join us in powering 640 million lives through renewable energy
