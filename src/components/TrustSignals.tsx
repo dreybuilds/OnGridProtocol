@@ -1,5 +1,4 @@
 import { Shield, Lock, FileCheck, Users } from 'lucide-react'
-import Image from 'next/image'
 
 const trustSignals = [
   { icon: Shield, title: 'Rigorous Vetting', description: 'All projects undergo thorough due diligence' },
@@ -35,7 +34,7 @@ export default function TrustSignals() {
           <h3 className="text-2xl font-semibold text-center mb-8">Our Partners</h3>
           <div className="flex flex-wrap justify-center items-center gap-8">
             {partnerLogos.map((logo, index) => (
-              <Image key={index} src={logo} alt={`Partner ${index + 1}`} width={200} height={100} className="h-12 grayscale hover:grayscale-0 transition-all duration-300" />
+              <img key={index} src={logo} alt={`Partner ${index + 1}`} className="h-12 grayscale hover:grayscale-0 transition-all duration-300" />
             ))}
           </div>
         </div>
