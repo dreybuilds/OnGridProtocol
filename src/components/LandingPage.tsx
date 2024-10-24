@@ -9,6 +9,7 @@ import InvestmentBenefits from './InvestmentBenefits'
 import ProjectShowcase from './ProjectShowcase'
 import TrustSignals from './TrustSignals'
 import CallToAction from './CallToAction'
+import WhitePaper from './WhitePaper'
 
 export default function LandingPage() {
   const [darkMode, setDarkMode] = useState(false)
@@ -41,6 +42,7 @@ export default function LandingPage() {
         <HowItWorks />
         <InvestmentBenefits />
         <ProjectShowcase />
+        <WhitePaper />
         <TrustSignals />
         <CallToAction />
       </main>

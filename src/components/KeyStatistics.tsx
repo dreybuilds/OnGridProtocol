@@ -11,7 +11,7 @@ const stats: Stat[] = [
   { label: 'Africans Lacking Energy Access', value: 640, unit: 'million' },
   { label: 'Potential CO2 Reduction', value: 500, unit: 'million tons' },
   { label: 'Investment Opportunity', value: 100, unit: 'billion USD' },
-  { label: 'Active Projects', value: 50, unit: '' },
+  { label: 'Possible Carbon Credit Generation', value: 50, unit: 'million credits' },
 ]
 
 export default function KeyStatistics() {
@@ -23,7 +23,7 @@ export default function KeyStatistics() {
   return (
     <section ref={ref} className="py-16 bg-gray-100 dark:bg-gray-800">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Our Impact</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">Possible Reach</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <StatCard key={index} {...stat} animate={inView} />
