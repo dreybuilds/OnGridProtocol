@@ -11,7 +11,7 @@ const stats: Stat[] = [
   { label: 'Africans Lacking Energy Access', value: 640, unit: 'million' },
   { label: 'Potential CO2 Reduction', value: 500, unit: 'million tons' },
   { label: 'Investment Opportunity', value: 100, unit: 'billion USD' },
-  { label: 'Possible Carbon Credit Generation', value: 50, unit: 'million credits' },
+  { label: 'Possible Carbon Credit Generation', value: 500, unit: 'million credits' },
 ]
 
 export default function KeyStatistics() {
