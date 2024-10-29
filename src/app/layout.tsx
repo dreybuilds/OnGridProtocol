@@ -1,35 +1,39 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
+import type { Metadata } from "next"
+import localFont from "next/font/local"
+import "./globals.css"
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// Load B612 font family
+const b612 = localFont({
+  src: [
+    {
+      path: './fonts/B612.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/B612.ttf',
+      weight: '700',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-b612'
+})
 
 export const metadata: Metadata = {
-  title: "OnGridAfrica - Invest in Africa's Sustainable Future",
-  description: "OnGridAfrica is a renewable energy crowdfunding platform connecting investors with sustainable energy projects across Africa.",
-};
+  title: "OnGridAfrica - Invest in Africa's Renewable Energy Future",
+  description: "Join us in transforming the energy sector through community-driven investments.",
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
-      >
+      <body className={`${b612.variable} font-b612 antialiased`}>
         {children}
       </body>
     </html>
-  );
+  )
 }

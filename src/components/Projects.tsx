@@ -58,15 +58,20 @@ const solarProjects: SolarProject[] = [
   },
 ]
 
-export default function ProjectShowcase() {
+export default function Projects() {
   return (
     <section className="py-16 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Featured Solar Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <h2 className="text-3xl font-bold text-center mb-8">Current Projects</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {solarProjects.map(project => (
             <ProjectCard key={project.id} project={project} />
           ))}
+        </div>
+        <div className="text-center">
+          <Button size="lg" className="bg-green-500 hover:bg-green-600">
+            View All Projects
+          </Button>
         </div>
       </div>
     </section>
@@ -101,6 +106,7 @@ function ProjectCard({ project }: { project: SolarProject }) {
             ></div>
           </div>
           <div className="flex justify-between text-sm text-gray-600 dark:text-gray-300 mt-1">
+            
             <span>{fundingPercentage.toFixed(0)}% Funded</span>
             <span>${project.fundingProgress.toLocaleString()} / ${project.fundingGoal.toLocaleString()}</span>
           </div>
