@@ -1,79 +1,68 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
-    
-    --oga-green: 153 60% 44%;
-    --oga-yellow: 52 100% 50%;
-    
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
-    
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
-    
-    --primary: 153 60% 44%;
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 52 100% 50%;
-    --secondary-foreground: 0 0% 0%;
-    
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 153 60% 44%;
-    
-    --radius: 0.5rem;
+:root {
+  --gradient-primary: linear-gradient(45deg, #3D9970 30%, #4CAF50 90%);
+  --gradient-secondary: linear-gradient(45deg, #FFDC00 30%, #FFEB3B 90%);
+  --gradient-accent: linear-gradient(45deg, #3D9970 30%, #FFDC00 90%);
+}
+
+body {
+  font-family: 'B612', sans-serif;
+}
+
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.gradient-primary {
+  background-image: var(--gradient-primary);
+}
+
+.gradient-secondary {
+  background-image: var(--gradient-secondary);
+}
+
+.gradient-accent {
+  background-image: var(--gradient-accent);
+}
+
+.hover-gradient {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: var(--gradient-accent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hover-gradient:hover::before {
+  opacity: 0.1;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
   }
- 
-  .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
- 
-    --card: 0 0% 0%;
-    --card-foreground: 0 0% 100%;
- 
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 0% 100%;
- 
-    --primary: 153 60% 44%;
-    --primary-foreground: 0 0% 100%;
- 
-    --secondary: 52 100% 50%;
-    --secondary-foreground: 0 0% 0%;
- 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
- 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 0 0% 100%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
- 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 153 60% 44%;
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
- 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
 }

@@ -1,43 +1,41 @@
-"use client"
-import { useState, useEffect } from 'react'
-import Header from './Header'
-import Hero from './Hero'
-import Overview from './Overview'
-import AboutUs from './AboutUs'
-import HowItWorks from './HowItWorks'
-import Projects from './Projects'
-import Impact from './Impact'
-import Partners from './Partners'
-import Blog from './Blog'
-import ContactUs from './ContactUs'
-import Footer from './Footer'
+'use client'
 
-export default function LandingPage() {
-  const [darkMode, setDarkMode] = useState(false)
+import React from 'react'
+import { motion } from 'framer-motion'
+import GradientBackground from './animations/gradient-background'
+import Hero from './sections/Hero'
+import Overview from './sections/Overview'
+import HowItWorks from './sections/HowItWorks'
+// import Projects from './sections/Projects'
+import Impact from './sections/Impact'
+import AboutUs from './sections/AboutUs'
+// import Partners from './sections/Partners'
+import ContactUs from './sections/ContactUs'
+import WhitePaper from './sections/WhitePaper'
+import Header from './layout/Header'
+import Footer from './layout/Footer'
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  }, [darkMode])
-
+const LandingPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
-      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
-      <main>
-        <Hero />
-        <Overview />
-        <AboutUs />
-        <HowItWorks />
-        <Projects />
-        <Impact />
-        <Partners />
-        <Blog />
-        <ContactUs />
-      </main>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Header />
+      <GradientBackground />
+      <Hero />
+      <Overview />
+      <HowItWorks />
+      {/* <Projects /> */}
+      <Impact />
+      <AboutUs />
+      {/* <Partners /> */}
+      <ContactUs />
+      <WhitePaper />
       <Footer />
-    </div>
+    </motion.div>
   )
 }
+
+export default LandingPage
