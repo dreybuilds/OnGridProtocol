@@ -56,7 +56,7 @@ export default function Overview() {
                 Competitive financial returns
               </motion.li>
             </ul>
-            <Button size="lg" className="bg-oga-green hover:bg-oga-green/90 transition-colors duration-200">
+            <Button size="lg" className="bg-oga-green hover:bg-oga-green/90 transition-colors duration-200 text-white">
               Explore Projects
             </Button>
           </motion.div>

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import Image from 'next/image'
+import { gradients } from '@/styles/gradients'
 
 export default function AboutUs() {
   return (
@@ -14,6 +15,7 @@ export default function AboutUs() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
+          style={{ background: gradients.primary, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
         >
           About OnGridAfrica
         </motion.h2>
@@ -39,7 +41,7 @@ export default function AboutUs() {
               <li>Innovation: We continuously seek new ways to improve and expand our impact.</li>
               <li>Community: We put the needs and development of local communities at the forefront of our projects.</li>
             </ul>
-            <Button size="lg" className="bg-oga-green hover:bg-oga-green/90 transition-colors duration-200">
+            <Button size="lg" className="bg-oga-green hover:bg-oga-green/90 transition-colors duration-200 text-white">
               Join Our Mission
             </Button>
           </motion.div>

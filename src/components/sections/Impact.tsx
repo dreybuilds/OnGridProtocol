@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Sun, Wind, Droplet, Users } from 'lucide-react'
+import { gradients } from '@/styles/gradients'
 
 interface ImpactStat {
   icon: React.ElementType
@@ -20,7 +21,7 @@ const impactStats: ImpactStat[] = [
 const ImpactCard: React.FC<{ stat: ImpactStat }> = ({ stat }) => {
   return (
     <motion.div 
-      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-center hover-gradient"
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-center hover:shadow-xl transition-shadow duration-300"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -52,13 +53,14 @@ export default function Impact() {
     <section id="impact" className="py-16 bg-gray-100 dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <motion.h2 
-          className="text-3xl font-bold text-center mb-12 gradient-text gradient-primary"
+          className="text-3xl font-bold text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
+          style={{ background: gradients.primary, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
         >
-          Our Potential Impact
+          Our Impact
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {impactStats.map((stat, index) => (
