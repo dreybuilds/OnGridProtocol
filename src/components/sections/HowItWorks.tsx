@@ -14,7 +14,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-16 bg-white dark:bg-gray-900">
+    <section id="how-it-works" className="py-16 bg-gray-800 text-white">
       <div className="container mx-auto px-4">
         <motion.h2 
           className="text-3xl font-bold text-center mb-12"
@@ -24,7 +24,7 @@ export default function HowItWorks() {
           viewport={{ once: true }}
           style={{ background: gradients.primary, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
         >
-          How It Works
+          Stake, Build, Deploy, and Track Green Energy Solutions On-Chain
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
           {steps.map((step, index) => (
@@ -44,7 +44,7 @@ export default function HowItWorks() {
                 <step.icon className="h-8 w-8" />
               </motion.div>
               <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300">{step.description}</p>
+              <p>{step.description}</p>
             </motion.div>
           ))}
         </div>

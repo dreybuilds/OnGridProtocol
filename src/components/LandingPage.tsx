@@ -1,41 +1,55 @@
 'use client'
 
-import React from 'react'
-import { motion } from 'framer-motion'
-import GradientBackground from './animations/gradient-background'
+import { useEffect } from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import Header from './layout/Header'
+import Footer from './layout/Footer'
 import Hero from './sections/Hero'
 import Overview from './sections/Overview'
 import HowItWorks from './sections/HowItWorks'
-// import Projects from './sections/Projects'
+import InvestmentBenefits from './sections/InvestmentBenefits'
 import Impact from './sections/Impact'
-import AboutUs from './sections/AboutUs'
-// import Partners from './sections/Partners'
-import ContactUs from './sections/ContactUs'
-import WhitePaper from './sections/WhitePaper'
-import Header from './layout/Header'
-import Footer from './layout/Footer'
+// import Projects from './sections/Projects'
+import CallToAction from './sections/CallToAction'
+// import Blog from './sections/Blog'
+import { gradients } from '@/styles/gradients'
 
-const LandingPage: React.FC = () => {
+export default function LandingPage() {
+  const controls = useAnimation()
+
+  useEffect(() => {
+    controls.start({
+      background: [
+        gradients.primary,
+        gradients.secondary,
+        gradients.primary,
+      ],
+      transition: {
+        duration: 10,
+        repeat: Infinity,
+        repeatType: "reverse",
+      },
+    })
+  }, [controls])
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div className="min-h-screen flex flex-col">
+      <motion.div
+        className="fixed inset-0 -z-10"
+        animate={controls}
+      />
       <Header />
-      <GradientBackground />
-      <Hero />
-      <Overview />
-      <HowItWorks />
-      {/* <Projects /> */}
-      <Impact />
-      <AboutUs />
-      {/* <Partners /> */}
-      <ContactUs />
-      <WhitePaper />
+      <main className="flex-grow">
+        <Hero />
+        <Overview />
+        <HowItWorks />
+        <InvestmentBenefits />
+        <Impact />
+        {/* <Projects /> */}
+        <CallToAction />
+        {/* <Blog /> */}
+      </main>
       <Footer />
-    </motion.div>
+    </div>
   )
 }
-
-export default LandingPage

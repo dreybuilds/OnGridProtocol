@@ -60,7 +60,7 @@ export default function Impact() {
           viewport={{ once: true }}
           style={{ background: gradients.primary, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
         >
-          Our Impact
+          Our Potential Impact
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {impactStats.map((stat, index) => (
@@ -74,7 +74,7 @@ export default function Impact() {
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          Join us in our mission to power Africa&apos;s sustainable future. Every investment makes a difference.
+          Join us in our mission to power A sustainable future. Every investment makes a difference.
         </motion.p>
       </div>
     </section>

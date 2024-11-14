@@ -28,7 +28,7 @@ const benefits = [
 
 export default function InvestmentBenefits() {
   return (
-    <section className="py-16 bg-white dark:bg-gray-900">
+    <section className="py-16 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
         <motion.h2 
           className="text-3xl font-bold text-center mb-12"
@@ -37,7 +37,7 @@ export default function InvestmentBenefits() {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          Benefits of Investing with OnGridAfrica
+          Investing in a Sustainable Energy Future
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
@@ -53,10 +53,19 @@ export default function InvestmentBenefits() {
                 <benefit.icon size={32} />
               </div>
               <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300">{benefit.description}</p>
+              <p>{benefit.description}</p>
             </motion.div>
           ))}
         </div>
+        <motion.p
+          className="text-center mt-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          viewport={{ once: true }}
+        >
+          Support clean energy projects, from small rooftop installations to expansive solar farms. OnGrid Protocol enables direct access to renewable energy assets, offering potential for solid returns, eco-friendly impact, and portfolio diversification beyond traditional markets—all while advancing the green energy transition on-chain.
+        </motion.p>
       </div>
     </section>
   )
