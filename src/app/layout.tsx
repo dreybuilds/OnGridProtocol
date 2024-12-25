@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
 
+
 // Load B612 font family
 const b612 = localFont({
   src: [

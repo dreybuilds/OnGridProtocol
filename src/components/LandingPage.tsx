@@ -34,19 +34,19 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <motion.div
+      {/* <motion.div
         className="fixed inset-0 -z-10"
         animate={controls}
-      />
+      /> */}
       <Header />
       <main className="flex-grow">
         <Hero />
-        <Overview />
-        <HowItWorks />
+        {/* <Overview /> */}
+        {/* <HowItWorks />
         <InvestmentBenefits />
-        <Impact />
+        <Impact /> */}
         {/* <Projects /> */}
-        <CallToAction />
+        {/* <CallToAction /> */}
         {/* <Blog /> */}
       </main>
       <Footer />
