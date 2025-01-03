@@ -33,7 +33,7 @@ export default function LandingPage() {
   }, [controls])
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-gray-950 flex flex-col">
       {/* <motion.div
         className="fixed inset-0 -z-10"
         animate={controls}
@@ -41,7 +41,7 @@ export default function LandingPage() {
       <Header />
       <main className="flex-grow">
         <Hero />
-        {/* <Overview /> */}
+        <Overview />
         {/* <HowItWorks />
         <InvestmentBenefits />
         <Impact /> */}
