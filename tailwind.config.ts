@@ -23,7 +23,7 @@ const config: Config = {
   		},
   		colors: {
   			'oga-green': {
-  				DEFAULT: '#3D9970',
+  				DEFAULT: '#28a745',
   				light: '#4CAF50',
   				dark: '#2E7D32'
   			},

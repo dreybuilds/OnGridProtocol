@@ -13,6 +13,8 @@ import Impact from './sections/Impact'
 import CallToAction from './sections/CallToAction'
 // import Blog from './sections/Blog'
 import { gradients } from '@/styles/gradients'
+import { AboutSection } from './sections/AboutUs'
+import CoreFeatures from './sections/CoreFeatures'
 
 export default function LandingPage() {
   const controls = useAnimation()
@@ -33,7 +35,7 @@ export default function LandingPage() {
   }, [controls])
 
   return (
-    <div className="min-h-screen bg-gray-950 flex flex-col">
+    <div className="min-h-screen bg-zinc-950 flex flex-col">
       {/* <motion.div
         className="fixed inset-0 -z-10"
         animate={controls}
@@ -41,7 +43,9 @@ export default function LandingPage() {
       <Header />
       <main className="flex-grow">
         <Hero />
-        <Overview />
+        {/* <Overview /> */}
+        <AboutSection />
+        <CoreFeatures/>
         {/* <HowItWorks />
         <InvestmentBenefits />
         <Impact /> */}

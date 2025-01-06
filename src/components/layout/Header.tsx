@@ -57,7 +57,7 @@ export default function Header() {
             About
           </ScrollLink>
         </div>
-        <Button className="bg-oga-green-dark  border border-oga-green-dark  text-white  rounded-full hover:bg-oga-yellow-dark hover:text-gray-900">
+        <Button className="bg-[#28a745] border border-oga-green-dark  text-white  rounded-full hover:bg-oga-yellow-dark hover:text-gray-900">
         {/* // <Button className="bg-white border border-oga-green text-oga-green rounded-full hover:bg-oga-green-dark hover:text-white"> */}
           Invest Now
         </Button>
