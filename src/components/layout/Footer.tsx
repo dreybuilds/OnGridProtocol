@@ -1,12 +1,7 @@
 import Link from "next/link";
 import {
-  Github,
-  DiscIcon as Discord,
   Twitter,
-  Send,
-  Youtube,
-  Linkedin,
-  XIcon,
+  RssIcon,
 } from "lucide-react";
 
 export default function Footer() {
@@ -21,11 +16,11 @@ export default function Footer() {
             </Link>
             <div className="flex gap-4 max-w-[200px]">
               <Link href="#" className="hover:text-white transition-colors">
-                <Discord className="h-6 w-6" />
+                <RssIcon className="h-6 w-6" />
                 <span className="sr-only">Discord</span>
               </Link>
               <Link href="#" className="hover:text-white transition-colors">
-                <XIcon className="h-6 w-6" />
+                <Twitter className="h-6 w-6" />
                 <span className="sr-only">Twitter</span>
               </Link>
             </div>

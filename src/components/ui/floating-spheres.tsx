@@ -26,7 +26,7 @@ export function FloatingSphere({
   icon,
   glassOpacity = 0.2,
   iconSize = 24,
-  iconColor = 'white'
+  // iconColor = 'white'
 }: FloatingSphereProps) {
   const sphereRef = useRef<HTMLDivElement>(null)
 

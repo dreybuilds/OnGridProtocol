@@ -1,16 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Leaf, SunMedium, Factory, Brain, Users, Layers } from "lucide-react";
+"use client"
 
 export default function CoreFeatures() {
-  const iconMap = {
-    Leaf,
-    SunMedium,
-    Factory,
-    Brain,
-    Users,
-    Layers,
-  };
-
   const features = [
     {
       title: "Trustless Energy Investments",

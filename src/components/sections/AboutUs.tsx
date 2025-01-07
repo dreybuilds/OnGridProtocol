@@ -1,7 +1,7 @@
 import { Users, Brain, Shield, Leaf } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export function AboutSection() {
   const advantages = [
