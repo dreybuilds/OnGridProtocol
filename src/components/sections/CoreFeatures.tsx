@@ -7,7 +7,7 @@ export default function CoreFeatures() {
       description:
         "Secure, verifiable transactions for effortless green investments, powered by AI to identify optimal returns and carbon impact.",
       icon: "Leaf",
-      color: "blue-500",
+      color: "text-blue-500",
       label: "INVEST",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lLDwIE5hh4EaA9xmT2uXoy8Bo9AEz1.png",
@@ -17,7 +17,7 @@ export default function CoreFeatures() {
       description:
         "High-speed, low-cost transactions suited for large-scale renewable energy initiatives.",
       icon: "Layers",
-      color:"green-500",
+      color:"text-green-500",
       label: "CONNECT",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lLDwIE5hh4EaA9xmT2uXoy8Bo9AEz1.png",
@@ -27,7 +27,7 @@ export default function CoreFeatures() {
       description:
         "Convert solar, wind, and other clean energy projects into asset-backed tokens, making them accessible and tradable.",
       icon: "SunMedium",
-      //   colors: ["amber-600", "emerald-500"],
+      color:"text-orange-500",
       label: "TOKENIZE",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lLDwIE5hh4EaA9xmT2uXoy8Bo9AEz1.png",
@@ -37,7 +37,7 @@ export default function CoreFeatures() {
       description:
         "Deploy DePin (Decentralized Physical Infrastructure) devices to track, verify, and mine carbon credits on-chain—rewarding eco-friendly participation.",
       icon: "Factory",
-        color:"orange-500",
+      color:"text-oga-yellow",
       label: "DEPLOY",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lLDwIE5hh4EaA9xmT2uXoy8Bo9AEz1.png",
@@ -47,7 +47,7 @@ export default function CoreFeatures() {
       description:
         "Leverage AI to analyze market data, forecast energy demands, and streamline green transitions in real-time.",
       icon: "Brain",
-      colors: "oga-yellow-dark",
+      color: "text-rose-500",
       label: "ANALYZE",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lLDwIE5hh4EaA9xmT2uXoy8Bo9AEz1.png",
@@ -57,7 +57,7 @@ export default function CoreFeatures() {
       description:
         "Community-led decisions on funding and resource allocation, promoting transparent management of green projects.",
       icon: "Users",
-      color:"green-500",
+      color:"text-oga-yellow-light",
       label: "GOVERN",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lLDwIE5hh4EaA9xmT2uXoy8Bo9AEz1.png",
@@ -96,9 +96,7 @@ export default function CoreFeatures() {
               </div> */}
 
               <h2
-                className={`text-2xl font-bold text-${
-                  feature?.color ?? "oga-yellow"
-                } mb-4 flex items-center gap-4`}
+                className={`text-2xl font-bold ${feature.color} mb-4 flex items-center gap-4`}
               >
                 {feature.title}
               </h2>

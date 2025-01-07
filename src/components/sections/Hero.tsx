@@ -54,30 +54,30 @@ export default function Hero() {
       </div>
       <FloatingSphere
         size={120}
-        color="#1e7e34"
+        color="#022c22"
         top="20%"
         left="10%"
         delay={100}
         icon="/landing/bulb-green.png"
-        iconSize={50}
+        iconSize={100}
       />
       <FloatingSphere
         size={100}
-        color="#28a745"
+        color="#14532d"
         top="20%"
         right="15%"
         delay={50}
         icon="/landing/biomass-green.png"
-        iconSize={50}
+        iconSize={100}
       />
       <FloatingSphere
         size={90}
-        color="#2fb344"
+        color="#1a2e05"
         bottom="15%"
         right="20%"
         delay={2500}
         icon="/landing/turbine-green.png"
-        iconSize={50}
+        iconSize={100}
       />
     </main>
   );

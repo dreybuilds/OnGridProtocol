@@ -9,9 +9,9 @@ interface FloatingSphereProps {
   right?: string
   bottom?: string
   delay?: number
-  icon?:  string
+  icon?: string
   glassOpacity?: number
-  iconSize?: number
+  iconSize: number
   iconColor?: string
 }
 
@@ -25,8 +25,7 @@ export function FloatingSphere({
   delay = 0,
   icon,
   glassOpacity = 0.2,
-  iconSize = 24,
-  // iconColor = 'white'
+  iconSize,
 }: FloatingSphereProps) {
   const sphereRef = useRef<HTMLDivElement>(null)
 
@@ -54,7 +53,7 @@ export function FloatingSphere({
   return (
     <div
       ref={sphereRef}
-      className="absolute rounded-full bg-clip-padding backdrop-blur-xl backdrop-filter"
+      className="absolute"
       style={{
         width: size,
         height: size,
@@ -62,37 +61,84 @@ export function FloatingSphere({
         left,
         right,
         bottom,
-        background: `linear-gradient(145deg, ${color}${Math.round(glassOpacity * 255).toString(16)} 0%, ${color}${Math.round(glassOpacity * 127).toString(16)} 100%)`,
-        boxShadow: `
-          0 0 40px ${color}33,
-          inset -4px -4px 8px rgba(0, 0, 0, 0.1),
-          inset 4px 4px 8px rgba(255, 255, 255, 0.1)
-        `,
-        border: `1px solid rgba(255, 255, 255, 0.18)`,
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
       }}
     >
-      <div
-        className="absolute inset-0 rounded-full"
+      <svg
+        viewBox="0 0 259 259"
         style={{
-          background: 'linear-gradient(145deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%)',
-          opacity: 0.5
+          width: '100%',
+          height: '100%',
         }}
-      />
-      <div className="absolute inset-0 flex items-center justify-center">
-        {/* {typeof icon === 'string' ? ( */}
-          <img 
-            src={icon} 
-            alt="Icon" 
-            style={{
-              width: iconSize,
-              height: iconSize,
-              objectFit: 'contain'
-            }}
-          />
-        {/* } */}
-      </div>
+      >
+        <defs>
+          <radialGradient id={`sphereGradient-${delay}`} cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style={{stopColor: `${color}`, stopOpacity: 0.4}}/>
+            <stop offset="80%" style={{stopColor: `${color}`, stopOpacity: 0.7}}/>
+            <stop offset="100%" style={{stopColor: `${color}`, stopOpacity: 0.8}}/>
+          </radialGradient>
+          
+          <radialGradient id={`glowGradient-${delay}`} cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style={{stopColor: color, stopOpacity: 0.2}}/>
+            <stop offset="100%" style={{stopColor: color, stopOpacity: 0}}/>
+          </radialGradient>
+          
+          <filter id={`glow-${delay}`} x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="5" result="glow"/>
+            <feMerge>
+              <feMergeNode in="glow"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        
+        {/* Base dark sphere */}
+        <circle cx="129.5" cy="129.5" r="129.5" fill={`url(#sphereGradient-${delay})`}/>
+        
+        {/* Subtle glass effect */}
+        <circle 
+          cx="129.5" 
+          cy="129.5" 
+          r="129.5" 
+          fill="none" 
+          stroke="rgba(255,255,255,0.1)" 
+          strokeWidth="1"
+        />
+        
+        {/* Glow layer */}
+        <circle 
+          cx="129.5" 
+          cy="129.5" 
+          r="129.5" 
+          fill={`url(#glowGradient-${delay})`} 
+          style={{mixBlendMode: 'screen'}}
+        />
+        
+        {/* Highlight */}
+        <circle 
+          cx="90" 
+          cy="90" 
+          r="20" 
+          fill="rgba(255,255,255,0.1)"
+        />
+
+        {/* Centered Icon container */}
+        {icon && (
+          <foreignObject 
+            x={(259 - iconSize) / 2} 
+            y={(259 - iconSize) / 2} 
+            width={iconSize} 
+            height={iconSize}
+          >
+            <div className="w-full h-full flex items-center justify-center">
+              <img
+                src={icon}
+                alt="Icon"
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </foreignObject>
+        )}
+      </svg>
     </div>
   )
 }

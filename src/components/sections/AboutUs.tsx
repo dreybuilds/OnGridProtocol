@@ -62,7 +62,7 @@ export function AboutSection() {
   };
 
   return (
-    <section className="min-h-screen flex flex-row items-center justify-center">
+    <section className="min-h-screen  bg-bottom bg-no-repeat bg-opacity-20 flex flex-row items-center justify-center">
       <section className=" py-24 px-4 md:px-6 lg:px-8 bg-zinc-950">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
