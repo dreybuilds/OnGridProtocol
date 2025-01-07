@@ -10,7 +10,6 @@ interface FloatingSphereProps {
   bottom?: string
   delay?: number
   icon?: string
-  glassOpacity?: number
   iconSize: number
   iconColor?: string
 }
@@ -24,7 +23,6 @@ export function FloatingSphere({
   bottom,
   delay = 0,
   icon,
-  glassOpacity = 0.2,
   iconSize,
 }: FloatingSphereProps) {
   const sphereRef = useRef<HTMLDivElement>(null)

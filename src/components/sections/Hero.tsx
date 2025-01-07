@@ -63,7 +63,7 @@ export default function Hero() {
       />
       <FloatingSphere
         size={100}
-        color="#14532d"
+        color="#1a2e05"
         top="20%"
         right="15%"
         delay={50}
@@ -72,7 +72,7 @@ export default function Hero() {
       />
       <FloatingSphere
         size={90}
-        color="#1a2e05"
+        color="#022c22"
         bottom="15%"
         right="20%"
         delay={2500}
