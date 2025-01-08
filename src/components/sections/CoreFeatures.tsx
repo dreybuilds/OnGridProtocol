@@ -92,7 +92,7 @@ export default function CoreFeatures() {
     const interval = setInterval(activateRandom, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [features.length]);
 
   return (
     <div className="relative mx-auto px-4 pb-12 pt-16 min-h-screen bg-neutral-900 bg-opacity-20 backdrop-blur-xl backdrop-filter">

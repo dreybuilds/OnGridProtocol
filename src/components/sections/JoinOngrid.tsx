@@ -1,7 +1,6 @@
-import { Leaf, Code, Users, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function JoinOngrid() {
   return (

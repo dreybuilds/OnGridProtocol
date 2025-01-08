@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 
 interface FloatingSphereProps {
@@ -128,7 +129,7 @@ export function FloatingSphere({
             height={iconSize}
           >
             <div className="w-full h-full flex items-center justify-center">
-              <img
+              <Image
                 src={icon}
                 alt="Icon"
                 className="w-full h-full object-contain"

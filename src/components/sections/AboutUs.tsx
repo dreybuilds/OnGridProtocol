@@ -33,7 +33,7 @@ export function AboutSection() {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [advantages.length]);
 
   const cardVariants = {
     initial: {
