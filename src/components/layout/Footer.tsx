@@ -7,7 +7,7 @@ import {
 export default function Footer() {
   return (
     <footer className="rounded-t-4xl text-gray-400 p-4">
-      <div className="bg-[#1a3b2d] w-11/12 mx-auto px-8 pt-16 pb-8 rounded-3xl">
+      <div className="bg-oga-green-dark/20 w-11/12 mx-auto px-8 pt-16 pb-8 rounded-3xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo and Social Links */}
           <div className="space-y-6">
@@ -57,7 +57,7 @@ export default function Footer() {
             <p className="">
               Stay updated on Ongrid Protocol latest updates.
             </p>
-            <form className="flex w-full mt-5 transition-all ease-linear hover:shadow-lg focus-within:shadow-lg rounded-full border border-[#1a3b2d] p-1.5 pl-5 items-center bg-white w-9/12">
+            <form className="flex  mt-5 transition-all ease-linear hover:shadow-lg focus-within:shadow-lg rounded-full border border-[#1a3b2d] p-1.5 pl-5 items-center bg-white w-9/12">
               <input
                 type="text"
                 className="flex-grow focus:outline-none dark:text-white bg-transparent text-gray-700"

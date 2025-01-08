@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import { useEffect } from 'react'
-import { useAnimation } from 'framer-motion'
-import Header from './layout/Header'
-import Footer from './layout/Footer'
-import Hero from './sections/Hero'
+import { useEffect } from "react";
+import { useAnimation } from "framer-motion";
+import Header from "./layout/Header";
+import Footer from "./layout/Footer";
+import Hero from "./sections/Hero";
 // import Overview from './sections/Overview'
 // import HowItWorks from './sections/HowItWorks'
 // import InvestmentBenefits from './sections/InvestmentBenefits'
@@ -12,27 +12,25 @@ import Hero from './sections/Hero'
 // import Projects from './sections/Projects'
 // import CallToAction from './sections/CallToAction'
 // import Blog from './sections/Blog'
-import { gradients } from '@/styles/gradients'
-import { AboutSection } from './sections/AboutUs'
-import CoreFeatures from './sections/CoreFeatures'
+import { gradients } from "@/styles/gradients";
+import { AboutSection } from "./sections/AboutUs";
+import CoreFeatures from "./sections/CoreFeatures";
+import ModularArchitecture from "./sections/ModularArchitecture";
+import JoinOngrid from "./sections/JoinOngrid";
 
 export default function LandingPage() {
-  const controls = useAnimation()
+  const controls = useAnimation();
 
   useEffect(() => {
     controls.start({
-      background: [
-        gradients.primary,
-        gradients.secondary,
-        gradients.primary,
-      ],
+      background: [gradients.primary, gradients.secondary, gradients.primary],
       transition: {
         duration: 10,
         repeat: Infinity,
         repeatType: "reverse",
       },
-    })
-  }, [controls])
+    });
+  }, [controls]);
 
   return (
     <div className="min-h-screen bg-zinc-950 flex flex-col">
@@ -43,9 +41,10 @@ export default function LandingPage() {
       <Header />
       <main className="flex-grow">
         <Hero />
-        {/* <Overview /> */}
         <AboutSection />
-        <CoreFeatures/>
+        <ModularArchitecture />
+        <CoreFeatures />
+        <JoinOngrid />
         {/* <HowItWorks />
         <InvestmentBenefits />
         <Impact /> */}
@@ -55,5 +54,5 @@ export default function LandingPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

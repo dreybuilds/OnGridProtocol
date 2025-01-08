@@ -1,13 +1,21 @@
-"use client"
+"use client";
+
+import { IconLeaf, IconStackForward, IconBuilding } from "@tabler/icons-react";
+import { BrainCircuit, UsersRound, Coins } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function CoreFeatures() {
+  const [activeIndex, setActiveIndex] = useState(Number);
+
   const features = [
     {
       title: "Trustless Energy Investments",
       description:
         "Secure, verifiable transactions for effortless green investments, powered by AI to identify optimal returns and carbon impact.",
-      icon: "Leaf",
-      color: "text-blue-500",
+      Icon: IconLeaf,
+      color: "text-green-500",
+      hoverGlow: "shadow-[0_0_30px_rgba(34,197,94,0.3)]",
+      borderHover: "border-green-500/50",
       label: "INVEST",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lLDwIE5hh4EaA9xmT2uXoy8Bo9AEz1.png",
@@ -16,8 +24,10 @@ export default function CoreFeatures() {
       title: "Scalable Layer 2 Framework",
       description:
         "High-speed, low-cost transactions suited for large-scale renewable energy initiatives.",
-      icon: "Layers",
-      color:"text-green-500",
+      Icon: IconStackForward,
+      color: "text-blue-500",
+      hoverGlow: "shadow-[0_0_30px_rgba(59,130,246,0.3)]",
+      borderHover: "border-blue-500/50",
       label: "CONNECT",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lLDwIE5hh4EaA9xmT2uXoy8Bo9AEz1.png",
@@ -26,8 +36,10 @@ export default function CoreFeatures() {
       title: "Tokenization of Renewable Assets",
       description:
         "Convert solar, wind, and other clean energy projects into asset-backed tokens, making them accessible and tradable.",
-      icon: "SunMedium",
-      color:"text-orange-500",
+      Icon: Coins,
+      color: "text-orange-500",
+      hoverGlow: "shadow-[0_0_30px_rgba(249,115,22,0.3)]",
+      borderHover: "border-orange-500/50",
       label: "TOKENIZE",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lLDwIE5hh4EaA9xmT2uXoy8Bo9AEz1.png",
@@ -36,8 +48,10 @@ export default function CoreFeatures() {
       title: "DePin Devices & Carbon Credit Mining",
       description:
         "Deploy DePin (Decentralized Physical Infrastructure) devices to track, verify, and mine carbon credits on-chain—rewarding eco-friendly participation.",
-      icon: "Factory",
-      color:"text-oga-yellow",
+      Icon: IconBuilding,
+      color: "text-oga-yellow",
+      hoverGlow: "shadow-[0_0_30px_rgba(234,179,8,0.3)]",
+      borderHover: "border-yellow-500/50",
       label: "DEPLOY",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lLDwIE5hh4EaA9xmT2uXoy8Bo9AEz1.png",
@@ -46,8 +60,10 @@ export default function CoreFeatures() {
       title: "AI-Driven Eco Solutions",
       description:
         "Leverage AI to analyze market data, forecast energy demands, and streamline green transitions in real-time.",
-      icon: "Brain",
+      Icon: BrainCircuit,
       color: "text-rose-500",
+      hoverGlow: "shadow-[0_0_30px_rgba(244,63,94,0.3)]",
+      borderHover: "border-rose-500/50",
       label: "ANALYZE",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lLDwIE5hh4EaA9xmT2uXoy8Bo9AEz1.png",
@@ -56,52 +72,71 @@ export default function CoreFeatures() {
       title: "DAO-Driven Governance",
       description:
         "Community-led decisions on funding and resource allocation, promoting transparent management of green projects.",
-      icon: "Users",
-      color:"text-oga-yellow-light",
+      Icon: UsersRound,
+      color: "text-oga-yellow-light",
+      hoverGlow: "shadow-[0_0_30px_rgba(168,85,247,0.3)]",
+      borderHover: "border-oga-yellow/50",
       label: "GOVERN",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-lLDwIE5hh4EaA9xmT2uXoy8Bo9AEz1.png",
     },
   ];
 
-  return (
-    <div className="relative mx-auto px-4 pb-12 pt-16 min-h-screen bg-neutral-900 bg-opacity-20 backdrop-blur-lg backdrop-filter">
-        <div className="glowing-ellipse h-24 w-24"></div>
-        <div className="glowing-ellipse h-24 w-24 bottom-0 right-0"></div>
+  useEffect(() => {
+    const activateRandom = () => {
+      const randomIndex = Math.floor(Math.random() * features.length);
+      setActiveIndex(randomIndex);
+    };
 
-      <h2 className=" text-center text-3xl md:text-5xl font-bold mb-16 leading-tight bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
+    activateRandom();
+    const interval = setInterval(activateRandom, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative mx-auto px-4 pb-12 pt-16 min-h-screen bg-neutral-900 bg-opacity-20 backdrop-blur-xl backdrop-filter">
+      {/* <div className="glowing-ellipse h-[150px] w-[150px]"></div> */}
+      <div className="glowing-ellipse h-[150px] w-[150px] bottom-0 right-0"></div>
+
+      <h2 className="text-center text-3xl md:text-5xl font-bold mb-16 leading-tight bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
         Core Features
       </h2>
-      <div className="mx-auto grid max-w-7xl  grid-cols-1 gap-12 p-3 md:p-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 p-3 md:p-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
         {features.map((feature, index) => (
           <div
-            className="relative w-full rounded-[22px] max-w-sm max-h-[] p-4 sm:p-10 overflow-visible rounded-3xl bg-zinc-900"
+            className={`relative w-full rounded-[16px] max-w-sm p-6 overflow-visible  bg-zinc-900 
+            border border-transparent transition-all duration-500 ease-in-out
+            ${
+              activeIndex === index
+                ? `
+              ${feature.hoverGlow}
+              ${feature.borderHover}
+              transform scale-[1.02]
+            `
+                : ""
+            }`}
             key={index}
           >
-            <div className={`absolute inset-0  blur-3xl`} />
-            {feature.image && (
-              <div className="absolute -top-5 right-7/12 -translate-x-1/2">
-                <div className="relative w-28 h-28">
-                  <img
-                    src={feature.image}
-                    alt={`${feature.title} illustration`}
-                    className="object-contain drop-shadow-[0_0_40px_rgba(45,212,191,0.3)]"
-                  />
-                </div>
-              </div>
-            )}
-            <div className="relative mt-20">
-              {/* <div className={`text-sm font-medium text-${feature.colors[0]} tracking-wider mb-4`}>
-                {feature.label}
-              </div> */}
-
-              <h2
-                className={`text-2xl font-bold ${feature.color} mb-4 flex items-center gap-4`}
+            <div className="absolute inset-0 blur-3xl" />
+            <div className="relative">
+              <span
+                className={`
+                ${
+                  activeIndex === index
+                    ? `
+                ${feature.color}`
+                    : "text-gray-300"
+                }`}
               >
-                {feature.title}
-              </h2>
-
-              <p className="text-gray-300 leading-relaxed">
+                <feature.Icon size={36} className={` mb-4`} />
+                <h2
+                  className={`text-2xl font-bold mb-4 flex items-center gap-4`}
+                >
+                  {feature.title}
+                </h2>
+              </span>
+              <p className="text-gray-300 text-sm leading-relaxed">
                 {feature.description}
               </p>
             </div>
