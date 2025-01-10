@@ -1,6 +1,11 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
+import {
+  IconBrandCodesandbox,
+  IconDatabaseDollar,
+  IconSpeakerphone,
+} from "@tabler/icons-react";
 
 export default function JoinOngrid() {
   return (
@@ -15,87 +20,51 @@ export default function JoinOngrid() {
               Join OnGrid: Powering Clean Energy Together
             </p>
           </div>
-    
         </div>
         <div className="grid gap-6 lg:grid-cols-3 mt-12">
-        <div
-            className={`relative w-full rounded-[16px] max-w-sm p-6 overflow-visible  bg-zinc-900 
-            border border-transparent transition-all duration-500 ease-in-out
-          `}
-          >
-            <div className="absolute inset-0 blur-3xl" />
-            <div className="relative">
-              <span
-                className={`text-gray-300`}
-              >
-                <h2
-                  className={`text-2xl font-bold mb-4 flex items-center gap-4`}
-                >
-              Investors
-                </h2>
-              </span>
-              <p className="text-gray-300 text-base leading-relaxed">
-              Support the transition to renewables, earning potential returns and aiding carbon reduction.
-
-              </p>
+          <div className="w-full max-w-md bg-zinc-900 rounded-3xl p-8 shadow-lg">
+            <div className="mb-6">
+              <IconDatabaseDollar className="w-24 h-24 -rotate-45 text-blue-500" />
             </div>
+            <h2 className="text-2xl font-bold text-white mb-4">Investors</h2>
+            <p className="text-gray-400 text-base">
+              Support the transition to renewables, earning potential returns
+              and aiding carbon reduction.
+            </p>
           </div>
 
-          <div
-            className={`relative w-full rounded-[16px] max-w-sm p-6 overflow-visible  bg-zinc-900 
-            border border-transparent transition-all duration-500 ease-in-out
-          `}
-          >
-            <div className="absolute inset-0 blur-3xl" />
-            <div className="relative">
-              <span
-                className={`text-gray-300`}
-              >
-                <h2
-                  className={`text-2xl font-bold mb-4 flex items-center gap-4`}
-                >
-              Investors
-                </h2>
-              </span>
-              <p className="text-gray-300 text-base leading-relaxed">
-              Support the transition to renewables, earning potential returns and aiding carbon reduction.
-
-              </p>
+          <div className="w-full max-w-md bg-zinc-900 rounded-3xl p-8 shadow-lg">
+            <div className="mb-6">
+              <IconBrandCodesandbox className="w-24 h-24 -rotate-45 text-yellow-500" />
             </div>
+            <h2 className="text-2xl font-bold text-white mb-4">Developers</h2>
+            <p className="text-gray-400 text-base">
+              Integrate AI, DePin devices, and decentralized green financing
+              within your applications on OnGrid.
+            </p>
           </div>
 
-          <div
-            className={`relative w-full rounded-[16px] max-w-sm p-6 overflow-visible  bg-zinc-900 
-            border border-transparent transition-all duration-500 ease-in-out
-          `}
-          >
-            <div className="absolute inset-0 blur-3xl" />
-            <div className="relative">
-              <span
-                className={`text-gray-300`}
-              >
-                <h2
-                  className={`text-2xl font-bold mb-4 flex items-center gap-4`}
-                >
-              Investors
-                </h2>
-              </span>
-              <p className="text-gray-300 text-base leading-relaxed">
-              Support the transition to renewables, earning potential returns and aiding carbon reduction.
-
-              </p>
+          <div className="w-full max-w-md bg-zinc-900 rounded-3xl p-8 shadow-lg">
+            <div className="mb-6">
+              <IconSpeakerphone className="w-24 h-24 -rotate-45 text-green-500" />
             </div>
+            <h2 className="text-2xl font-bold text-white mb-4">Advocates</h2>
+            <p className="text-gray-400 text-base">
+              Promote clean energy initiatives, engage in environmental
+              advocacy, and inspire community action.
+            </p>
           </div>
         </div>
 
-        <div className='flex justify-center mt-8 '>
-        <Button size="lg" className="rounded-full bg-green-600 hover:bg-oga-yellow-dark hover:text-gray-800">
-            Build with us
-            <ArrowRight className="ml-2 h-4 w-4" />
+        <div className="flex justify-center mt-8 ">
+          <Button
+            className=" bg-oga-green  border border-oga-green-dark  text-white text-lg rounded-full hover:bg-oga-yellow-dark hover:text-gray-900"
+            size="lg"
+          >
+            Build with us <ArrowRight size={20} className="ml-2" />
           </Button>
         </div>
       </div>
     </section>
-  )
+  );
 }
-

@@ -132,6 +132,8 @@ export function FloatingSphere({
               <Image
                 src={icon}
                 alt="Icon"
+                width={200}
+                height={200}
                 className="w-full h-full object-contain"
               />
             </div>

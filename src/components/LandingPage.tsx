@@ -5,18 +5,13 @@ import { useAnimation } from "framer-motion";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import Hero from "./sections/Hero";
-// import Overview from './sections/Overview'
-// import HowItWorks from './sections/HowItWorks'
-// import InvestmentBenefits from './sections/InvestmentBenefits'
-// import Impact from './sections/Impact'
-// import Projects from './sections/Projects'
-// import CallToAction from './sections/CallToAction'
-// import Blog from './sections/Blog'
 import { gradients } from "@/styles/gradients";
 import { AboutSection } from "./sections/AboutUs";
 import CoreFeatures from "./sections/CoreFeatures";
 import ModularArchitecture from "./sections/ModularArchitecture";
 import JoinOngrid from "./sections/JoinOngrid";
+import { ScrollAnimate } from "./ui/scroll-animation";
+// import StakeDeployTrack from "./sections/HowItWorks";
 
 export default function LandingPage() {
   const controls = useAnimation();
@@ -33,7 +28,7 @@ export default function LandingPage() {
   }, [controls]);
 
   return (
-    <div className="min-h-screen bg-zinc-950 flex flex-col">
+    <div className="min-h-screen bg-neutral-950 flex flex-col">
       {/* <motion.div
         className="fixed inset-0 -z-10"
         animate={controls}
@@ -41,10 +36,25 @@ export default function LandingPage() {
       <Header />
       <main className="flex-grow">
         <Hero />
+        <ScrollAnimate delay={0.5}>
         <AboutSection />
+        </ScrollAnimate>
+
+        <ScrollAnimate delay={0.5}>
         <ModularArchitecture />
+        </ScrollAnimate>
+
+        <ScrollAnimate delay={0.5}>
         <CoreFeatures />
+        </ScrollAnimate>
+
+        {/* <ScrollAnimate delay={0.5}>
+          <StakeDeployTrack/>
+        </ScrollAnimate> */}
+
+        <ScrollAnimate delay={0.5}>
         <JoinOngrid />
+        </ScrollAnimate>
         {/* <HowItWorks />
         <InvestmentBenefits />
         <Impact /> */}

@@ -1,15 +1,21 @@
 import Link from "next/link";
-import {
-  Twitter,
-  RssIcon,
-} from "lucide-react";
+import { Twitter, RssIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
+  // const color = useMotionValue("#28a745");
+
+  // Create the gradient template
+  // const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 60%, ${color})`
   return (
-    <footer className="rounded-t-4xl text-gray-400 p-4">
-      <div className="bg-oga-green-dark/20 w-11/12 mx-auto px-8 pt-16 pb-8 rounded-3xl">
+    <motion.div
+      className="rounded-t-4xl text-gray-400 p-4"
+      // style={{
+      //   backgroundImage,
+      // }}
+    >
+      <div className="w-11/12 mx-auto px-8 pt-16 pb-8 rounded-3xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Logo and Social Links */}
           <div className="space-y-6">
             <Link href="/" className="text-4xl font-bold text-white">
               OnGridAfrica
@@ -54,9 +60,7 @@ export default function Footer() {
 
           <div className="space-y-4 col-span-2">
             <h2 className="text-white text-3xl">Sign-Up to Our Newsletter</h2>
-            <p className="">
-              Stay updated on Ongrid Protocol latest updates.
-            </p>
+            <p className="">Stay updated on Ongrid Protocol latest updates.</p>
             <form className="flex  mt-5 transition-all ease-linear hover:shadow-lg focus-within:shadow-lg rounded-full border border-[#1a3b2d] p-1.5 pl-5 items-center bg-white w-9/12">
               <input
                 type="text"
@@ -76,6 +80,6 @@ export default function Footer() {
           <p>2025 Ongrid Protocol All Rights Reserved.</p>
         </div>
       </div>
-    </footer>
+    </motion.div>
   );
 }

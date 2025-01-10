@@ -12,10 +12,10 @@ export default function ModularArchitecture() {
         OnChain Modular Architecture
       </h2>
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center h-full max-w-7xl pt-16 mx-auto px-4">
           <div className="mr-auto place-self-center ">
-            <h1 className="mb-4 max-w-3xl text-3xl md:text-5xl font-extrabold leading-none tracking-tight text-white">
+            <h1 className="mb-4 max-w-3xl text-3xl md:text-4xl font-extrabold leading-none tracking-tight text-white">
               Execution Layer
             </h1>
 
@@ -69,7 +69,7 @@ export default function ModularArchitecture() {
 
         <div className="flex justify-between items-center h-full max-w-7xl pt-40 mx-auto px-4">
           <div className="mr-auto place-self-center ">
-            <h1 className="mb-4 max-w-3xl text-3xl md:text-5xl font-extrabold leading-none tracking-tight text-white">
+            <h1 className="mb-4 max-w-3xl text-3xl md:text-4xl font-extrabold leading-none tracking-tight text-white">
               Consensus Layer
             </h1>
 

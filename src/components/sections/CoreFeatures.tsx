@@ -3,6 +3,7 @@
 import { IconLeaf, IconStackForward, IconBuilding } from "@tabler/icons-react";
 import { BrainCircuit, UsersRound, Coins } from "lucide-react";
 import { useEffect, useState } from "react";
+import GradientSection from "../ui/gradient-section";
 
 export default function CoreFeatures() {
   const [activeIndex, setActiveIndex] = useState(Number);
@@ -74,7 +75,7 @@ export default function CoreFeatures() {
         "Community-led decisions on funding and resource allocation, promoting transparent management of green projects.",
       Icon: UsersRound,
       color: "text-oga-yellow-light",
-      hoverGlow: "shadow-[0_0_30px_rgba(168,85,247,0.3)]",
+      hoverGlow: "shadow-[0_0_30px_rgba(234,179,8,0.3)]",
       borderHover: "border-oga-yellow/50",
       label: "GOVERN",
       image:
@@ -95,7 +96,8 @@ export default function CoreFeatures() {
   }, [features.length]);
 
   return (
-    <div className="relative mx-auto px-4 pb-12 pt-16 min-h-screen bg-neutral-900 bg-opacity-20 backdrop-blur-xl backdrop-filter">
+    <GradientSection>
+    <div className="relative mx-auto px-4 pb-12 pt-16 min-h-screen">
       {/* <div className="glowing-ellipse h-[150px] w-[150px]"></div> */}
       <div className="glowing-ellipse h-[150px] w-[150px] bottom-0 right-0"></div>
 
@@ -126,7 +128,7 @@ export default function CoreFeatures() {
                   activeIndex === index
                     ? `
                 ${feature.color}`
-                    : "text-gray-300"
+                    : "text-white"
                 }`}
               >
                 <feature.Icon size={36} className={` mb-4`} />
@@ -136,7 +138,7 @@ export default function CoreFeatures() {
                   {feature.title}
                 </h2>
               </span>
-              <p className="text-gray-300 text-sm leading-relaxed">
+              <p className="text-gray-400 text-base leading-relaxed">
                 {feature.description}
               </p>
             </div>
@@ -144,5 +146,6 @@ export default function CoreFeatures() {
         ))}
       </div>
     </div>
+    </GradientSection>
   );
 }
