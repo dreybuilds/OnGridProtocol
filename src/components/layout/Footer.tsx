@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Twitter, RssIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import logo from "../../../public/ongrid-logo.png"
 
 export default function Footer() {
   // const color = useMotionValue("#28a745");
@@ -18,7 +20,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-6">
             <Link href="/" className="text-4xl font-bold text-white">
-              OnGridAfrica
+            <Image src={logo} alt="Ongrid-logo" className="w-52" />
             </Link>
             <div className="flex gap-4 max-w-[200px]">
               <Link href="#" className="hover:text-white transition-colors">

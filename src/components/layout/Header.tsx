@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Link as ScrollLink } from "react-scroll";
+import Image from "next/image";
+import logo from "../../../public/ongrid-logo.png"
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,7 +29,7 @@ export default function Header() {
     >
       <nav className="mx-auto w-full max-w-screen-xl flex items-center justify-between py-5">
         <Link href="/" className="text-4xl font-bold text-white">
-          OnGrid
+        <Image src={logo} alt="Ongrid-logo" className="w-28 lg:w-40" />
         </Link>
         <div className="hidden md:flex space-x-12 text-white md:text-lg">
           <ScrollLink
