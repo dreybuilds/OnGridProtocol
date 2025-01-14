@@ -64,13 +64,12 @@ export function AboutSection() {
 
   return (
     <GradientSection>
-      <section className=" min-h-fit relative flex flex-row items-center justify-center">
+      <section className="min-h-fit relative flex flex-row items-center justify-center">
         {/* <div className="glowing-ellipse h-[100px] w-[100px]"></div> */}
         {/* <div className="glowing-ellipse h-[100px] w-[100px] top-[25%] ml-0 mr-0 left-0 right-0"></div> */}
-        <section className=" py-24 px-4 md:px-6 lg:px-8">
+        <section className="py-12 md:py-24 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-              {/* Left Column - Main Content */}
               <div className="relative">
                 <div className="absolute -top-4 -left-4 w-24 h-24 bg-green-500/10 rounded-full blur-2xl" />
                 <div className="relative">
@@ -83,7 +82,7 @@ export function AboutSection() {
                   <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
                     Bridging Real-World Renewable Energy with On-Chain Finance
                   </h2>
-                  <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+                  <p className="text-gray-400 text-base md:text-lg mb-8 leading-relaxed">
                     OnGrid Protocol (OGP) bridges real-world renewable energy
                     projects with on-chain finance. By leveraging DePin devices
                     for carbon credit mining, AI-driven insights, and scalable
@@ -93,7 +92,6 @@ export function AboutSection() {
                 </div>
               </div>
 
-              {/* Right Column - Advantages Cards */}
               <div className="grid gap-6">
                 {advantages.map((advantage, index) => (
                   <motion.div
@@ -106,21 +104,25 @@ export function AboutSection() {
                   >
                     <Card
                       className={`bg-transparent cursor-pointer border-0 backdrop-blur-sm 
-        ${activeCard === index
-                          ? "shadow-xl shadow-green-500/20 border border-green-500/70"
-                          : ""
-                        }`}
+        ${
+          activeCard === index
+            ? "shadow-xl shadow-green-500/20 border border-green-500/70"
+            : ""
+        }`}
                     >
                       <CardContent className="p-6">
                         <div className="flex items-start gap-4">
                           <div className="p-2 rounded-lg bg-green-500/10">
-                            <advantage.icon size={36} className="text-green-500" />
+                            <advantage.icon
+                              size={36}
+                              className="text-green-500"
+                            />
                           </div>
                           <div>
                             <h3 className="text-xl font-semibold text-white mb-2">
                               {advantage.title}
                             </h3>
-                            <p className="text-gray-400">
+                            <p className="text-gray-200">
                               {advantage.description}
                             </p>
                           </div>

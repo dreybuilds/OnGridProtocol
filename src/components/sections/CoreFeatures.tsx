@@ -97,17 +97,17 @@ export default function CoreFeatures() {
 
   return (
     <GradientSection>
-    <div className="relative mx-auto px-4 pb-12 pt-16 min-h-screen">
+    <div className="relative mx-auto px-4 pb-12 pt-12 md:pt-16 md:min-h-screen">
       {/* <div className="glowing-ellipse h-[150px] w-[150px]"></div> */}
       <div className="glowing-ellipse h-[150px] w-[150px] bottom-0 right-0"></div>
 
       <h2 className="text-center text-3xl md:text-5xl font-bold mb-16 leading-tight bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
         Core Features
       </h2>
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 p-3 md:p-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:p-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
         {features.map((feature, index) => (
           <div
-            className={`relative w-full rounded-[16px] max-w-sm p-6 overflow-visible  bg-zinc-900 
+            className={`relative w-full rounded-[16px] p-6 overflow-visible  bg-zinc-900 
             border border-transparent transition-all duration-500 ease-in-out
             ${
               activeIndex === index
@@ -133,7 +133,7 @@ export default function CoreFeatures() {
               >
                 <feature.Icon size={36} className={` mb-4`} />
                 <h2
-                  className={`text-2xl font-bold mb-4 flex items-center gap-4`}
+                  className={`text-xl sm:text-2xl font-bold mb-4 flex items-center gap-4`}
                 >
                   {feature.title}
                 </h2>

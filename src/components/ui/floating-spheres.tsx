@@ -52,7 +52,7 @@ export function FloatingSphere({
   return (
     <div
       ref={sphereRef}
-      className="absolute"
+      className="absolute hidden lg:block"
       style={{
         width: size,
         height: size,

@@ -12,22 +12,22 @@ export default function ModularArchitecture() {
         OnChain Modular Architecture
       </h2>
 
-      <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-center h-full max-w-7xl pt-16 mx-auto px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex justify-between items-center h-full pt-6 md:pt-16 mx-auto px-4">
           <div className="mr-auto place-self-center ">
-            <h1 className="mb-4 max-w-3xl text-3xl md:text-4xl font-extrabold leading-none tracking-tight text-white">
+            <h1 className="mb-4 max-w-3xl text-2xl md:text-4xl font-extrabold leading-none tracking-tight text-white">
               Execution Layer
             </h1>
 
             <div>
-              <p className="md:text-xllg:mb-8 mb-6 max-w-2xl font-light text-gray-500 lg:text-2xl">
+              <p className="md:text-xl lg:mb-8 mb-6 max-w-2xl font-light text-gray-500 lg:text-2xl">
                 Handles energy asset transactions and carbon credit mining data,
                 compatible with Ethereum{"'"}s EVM for seamless integration.
               </p>
             </div>
           </div>
           <div className="relative">
-          <div className="absolute aspect-square bg-green-700 rounded-full blur-[122px] flex-none left-1/2 top-[37px] -translate-x-1/2 w-[85%]"></div>
+            <div className="absolute aspect-square bg-green-700 rounded-full blur-[122px] flex-none left-1/2 top-[37px] -translate-x-1/2 w-[85%]"></div>
             <div className="relative">
               <Image
                 src={eth}
@@ -40,48 +40,48 @@ export default function ModularArchitecture() {
           </div>
         </div>
 
-        <div className="flex flex-row-reverse  justify-between items-center h-full max-w-7xl pt-40  mx-auto px-4">
-          <div className=" ">
-            <h1 className="mb-4 max-w-3xl text-4xl font-extrabold leading-none tracking-tight text-white ">
+        <div className="flex flex-row-reverse  justify-between items-center h-full max-w-7xl pt-16 md:pt-28 lg:pt-40 mx-auto px-4">
+          <div className="ml-12 ">
+            <h1 className="mb-4 max-w-3xl text-2xl md:text-4xl font-extrabold leading-none tracking-tight text-white ">
               Data Availability Layer
             </h1>
 
             <div>
-              <p className="md:text-xl lg:mb-8 mb-6 max-w-2xl font-light text-gray-500 lg:text-2xl">
-                Provides transparent, real-time data for project performance and
-                ROI, enabling AI-driven optimization.
-              </p>
-            </div>
-          </div>
-          <div className="relative">
-          <div className="absolute aspect-square bg-blue-700 rounded-full blur-[122px] flex-none left-1/2 top-[37px] -translate-x-1/2 w-[85%]"></div>
-            <div className="relative">
-              <Image
-                src={stack}
-                alt=""
-                width={500}
-                height={500}
-                className="w-[200px] "
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="flex justify-between items-center h-full max-w-7xl pt-40 mx-auto px-4">
-          <div className="mr-auto place-self-center ">
-            <h1 className="mb-4 max-w-3xl text-3xl md:text-4xl font-extrabold leading-none tracking-tight text-white">
-              Consensus Layer
-            </h1>
-
-            <div>
-              <p className="md:text-xllg:mb-8 mb-6 max-w-2xl font-light text-gray-500 lg:text-2xl">
+              <p className="text-base md:text-xl lg:mb-8 mb-6 max-w-2xl font-light text-gray-500 lg:text-2xl">
                 Incentivizes secure validation of renewable asset transactions,
                 ensuring reliability across the network.
               </p>
             </div>
           </div>
           <div className="relative">
-          <div className="absolute aspect-square bg-yellow-700 rounded-full blur-[122px] flex-none left-1/2 top-[37px] -translate-x-1/2 w-[85%]"></div>
+            <div className="absolute aspect-square bg-blue-700 rounded-full blur-[122px] flex-none left-1/2 top-[37px] -translate-x-1/2 w-[85%]"></div>
+            <div className="relative">
+              <Image
+                src={stack}
+                alt=""
+                width={500}
+                height={500}
+                className="w-[200px]"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-between items-center h-full max-w-7xl pt-16 md:pt-28 lg:pt-40 mx-auto px-4">
+          <div className="mr-auto place-self-center ">
+            <h1 className="mb-4 max-w-3xl text-2xl md:text-4xl font-extrabold leading-none tracking-tight text-white">
+              Consensus Layer
+            </h1>
+
+            <div>
+              <p className="text-base md:text-xl lg:mb-8 mb-6 max-w-2xl font-light text-gray-500 lg:text-2xl">
+                Incentivizes secure validation of renewable asset transactions,
+                ensuring reliability across the network.
+              </p>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="absolute aspect-square bg-yellow-700 rounded-full blur-[122px] flex-none left-1/2 top-[37px] -translate-x-1/2 w-[85%]"></div>
             <div className="relative">
               <Image
                 src={decentralized}

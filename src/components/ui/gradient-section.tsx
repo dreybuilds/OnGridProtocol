@@ -19,7 +19,7 @@ export default function GradientSection({
   return (
     <section 
       className={cn(
-        "relative min-h-screen w-full overflow-hidden bg-transparent bg-opacity-10 px-6 py-12 text-white md:px-12",
+        "relative min-h-screen w-full overflow-hidden bg-transparent bg-opacity-10 px-6 py-0 md:py-6 text-white md:px-12",
         className
       )}
     >

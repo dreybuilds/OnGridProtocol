@@ -5,22 +5,22 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <main className="min-h-screen ">
+    <main className="md:min-h-screen  ">
       <div className="py-3 pb-0 px-4">
-        <div className="relative min-h-screen  overflow-hidden rounded-3xl">
+        <div className="relative md:min-h-screen  overflow-hidden rounded-3xl">
           <div className="absolute inset-0">
             <div className="absolute inset-0  bg-[url('/landing/landing-bg.svg')] bg-bottom bg-no-repeat bg-opacity-20" />
           </div>
 
-          <div className="relative pt-24">
-            <div className="relative px-6 py-24 sm:px-12 sm:py-32">
+          <div className="relative px-6 py-12 md:p-12 md:pt-24">
+            <div className="relative px-6 py-12 sm:py-24 sm:px-12 md:py-32">
               <motion.div
                 className="mx-auto max-w-4xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2 }}
               >
-                <h1 className="relative text-3xl font-bold tracking-tight bg-gradient-to-r from-gray-100 to-gray-500 bg-clip-text text-transparent sm:text-6xl lg:text-7xl">
+                <h1 className="relative text-4xl font-bold tracking-tight bg-gradient-to-r from-gray-100 to-gray-500 bg-clip-text text-transparent sm:text-5xl md:text-6xl lg:text-7xl">
                   Enable{" "}
                   <span className="relative inline-block bg-gradient-to-r from-gray-100 to-gray-500 bg-clip-text text-transparent ">
                     Clean
@@ -61,8 +61,8 @@ export default function Hero() {
       <FloatingSphere
         size={120}
         color="#022c22"
-        top="20%"
-        left="10%"
+        top="100px"
+        left="8vw"
         delay={100}
         icon="/landing/bulb-green.png"
         iconSize={100}
@@ -80,7 +80,7 @@ export default function Hero() {
         size={90}
         color="#022c22"
         bottom="15%"
-        right="20%"
+        right="50px"
         delay={2500}
         icon="/landing/turbine-green.png"
         iconSize={100}

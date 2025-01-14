@@ -5,7 +5,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Link as ScrollLink } from "react-scroll";
 import Image from "next/image";
-import logo from "../../../public/ongrid-logo.png"
+import logo from "../../../public/ongrid-logo.png";
+import { MobileNav } from "./MobileNav";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,9 +28,9 @@ export default function Header() {
           : "bg-transparent backdrop-blur-lg backdrop-filter pt-5"
       }`}
     >
-      <nav className="mx-auto w-full max-w-screen-xl flex items-center justify-between py-5">
+      <nav className="mx-auto w-full max-w-screen-xl flex items-center justify-between py-4 px-5 md:p-5">
         <Link href="/" className="text-4xl font-bold text-white">
-        <Image src={logo} alt="Ongrid-logo" className="w-28 lg:w-40" />
+          <Image src={logo} alt="Ongrid-logo" className="w-32 lg:w-40" />
         </Link>
         <div className="hidden md:flex space-x-12 text-white md:text-lg">
           <ScrollLink
@@ -65,12 +66,11 @@ export default function Header() {
             About
           </ScrollLink>
         </div>
-        <Button
-          className=" bg-oga-green  border border-oga-green-dark  text-white text-lg rounded-full hover:bg-oga-yellow-dark hover:text-gray-900"
-          size="lg"
-        >
+        <Button className="hidden md:inline-flex bg-oga-green  border border-oga-green-dark  text-white text-lg rounded-full hover:bg-oga-yellow-dark hover:text-gray-900 px-4 py-2  md:text-lg md:px-6 md:py-3">
           Build with us
         </Button>
+
+        <MobileNav/>
       </nav>
     </header>
   );
