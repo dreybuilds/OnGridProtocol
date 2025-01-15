@@ -7,7 +7,7 @@ import decentralized from "../../../public/landing/decentralized.png";
 
 export default function ModularArchitecture() {
   return (
-    <div className="relative mx-auto px-4 pb-12 pt-16 min-h-screen bg-green-950 bg-opacity-20 overflow-hidden">
+    <div className="relative mx-auto px-4 pb-12 pt-16 md:min-h-screen bg-green-950 bg-opacity-20 overflow-hidden">
       <h2 className="text-center text-3xl md:text-5xl font-bold mb-16 leading-tight bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
         OnChain Modular Architecture
       </h2>
@@ -34,14 +34,14 @@ export default function ModularArchitecture() {
                 alt=""
                 width={400}
                 height={400}
-                className="w-[200px]"
+                className="w-[250px]"
               />
             </div>
           </div>
         </div>
 
         <div className="flex flex-row-reverse  justify-between items-center h-full max-w-7xl pt-16 md:pt-28 lg:pt-40 mx-auto px-4">
-          <div className="ml-12 ">
+          <div className="ml-6 md:ml-12 ">
             <h1 className="mb-4 max-w-3xl text-2xl md:text-4xl font-extrabold leading-none tracking-tight text-white ">
               Data Availability Layer
             </h1>
@@ -61,7 +61,7 @@ export default function ModularArchitecture() {
                 alt=""
                 width={500}
                 height={500}
-                className="w-[200px]"
+                className="w-[250px]"
               />
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function ModularArchitecture() {
                 alt=""
                 width={500}
                 height={500}
-                className="w-[200px] "
+                className="w-[250px] "
               />
             </div>
           </div>

@@ -36,11 +36,11 @@ export default function LandingPage() {
       <Header />
       <main className="flex-grow">
         <Hero />
-        <ScrollAnimate delay={0.5}>
+        <ScrollAnimate id="about" delay={0.5}>
         <AboutSection />
         </ScrollAnimate>
 
-        <ScrollAnimate delay={0.5}>
+        <ScrollAnimate id="how-it-works" delay={0.5}>
         <ModularArchitecture />
         </ScrollAnimate>
 

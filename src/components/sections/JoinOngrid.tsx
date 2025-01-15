@@ -6,6 +6,7 @@ import {
   IconDatabaseDollar,
   IconSpeakerphone,
 } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function JoinOngrid() {
   return (
@@ -26,7 +27,9 @@ export default function JoinOngrid() {
             <div className="mb-6">
               <IconDatabaseDollar className="w-16 h-16 md:w-24 md:h-24 -rotate-45 text-blue-500" />
             </div>
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">Investors</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
+              Investors
+            </h2>
             <p className="text-gray-400 text-base">
               Support the transition to renewables, earning potential returns
               and aiding carbon reduction.
@@ -37,7 +40,9 @@ export default function JoinOngrid() {
             <div className="mb-6">
               <IconBrandCodesandbox className="w-16 h-16 md:w-24 md:h-24 -rotate-45 text-yellow-500" />
             </div>
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">Developers</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
+              Developers
+            </h2>
             <p className="text-gray-400 text-base">
               Integrate AI, DePin devices, and decentralized green financing
               within your applications on OnGrid.
@@ -48,7 +53,9 @@ export default function JoinOngrid() {
             <div className="mb-6">
               <IconSpeakerphone className="w-16 h-16 md:w-24 md:h-24 -rotate-45 text-green-500" />
             </div>
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">Advocates</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
+              Advocates
+            </h2>
             <p className="text-gray-400 text-base">
               Promote clean energy initiatives, engage in environmental
               advocacy, and inspire community action.
@@ -57,12 +64,14 @@ export default function JoinOngrid() {
         </div>
 
         <div className="flex justify-center mt-8 ">
-          <Button
-            className=" bg-oga-green  border border-oga-green-dark  text-white text-lg rounded-full hover:bg-oga-yellow-dark hover:text-gray-900"
-            size="lg"
-          >
-            Build with us <ArrowRight size={20} className="ml-2" />
-          </Button>
+          <Link href="https://forms.gle/moCpCKMtVwCpVa92A" target="blank">
+            <Button
+              size="lg"
+              className=" bg-oga-green p-4  border border-oga-green-dark  text-white text-lg rounded-full hover:bg-oga-yellow-dark hover:text-gray-900  md:text-lg md:px-6 md:py-3"
+            >
+              Build with us <ArrowRight size={20} className="ml-4" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

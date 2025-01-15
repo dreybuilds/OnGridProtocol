@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { FloatingSphere } from "../ui/floating-spheres";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -12,8 +13,8 @@ export default function Hero() {
             <div className="absolute inset-0  bg-[url('/landing/landing-bg.svg')] bg-bottom bg-no-repeat bg-opacity-20" />
           </div>
 
-          <div className="relative px-6 py-12 md:p-12 md:pt-24">
-            <div className="relative px-6 py-12 sm:py-24 sm:px-12 md:py-32">
+          <div className="relative px-6 pb-12 pt-20 md:p-12 md:pt-24">
+            <div className="relative px-0 py-12 sm:py-24 sm:px-12 md:py-32">
               <motion.div
                 className="mx-auto max-w-4xl"
                 initial={{ opacity: 0, y: 20 }}
@@ -46,13 +47,14 @@ export default function Hero() {
                   Layer 2 network for trustless transactions and AI-assisted
                   eco-solutions.
                 </p>
-
+                <Link href="https://forms.gle/weTesyUcPou2Snug9" target="blank">
                 <Button
                   className="mt-8 bg-oga-green  border border-oga-green-dark  text-white text-lg rounded-full hover:bg-oga-yellow-dark hover:text-gray-900"
                   size="lg"
                 >
                   Get Whitelisted <ArrowRight size={20} className="ml-2"  />
                 </Button>
+                </Link>
               </motion.div>
             </div>
           </div>

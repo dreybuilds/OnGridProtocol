@@ -34,43 +34,46 @@ export default function Header() {
         </Link>
         <div className="hidden md:flex space-x-12 text-white md:text-lg">
           <ScrollLink
-            to={"project"}
+            to={"about"}
             smooth={true}
             duration={800}
+            offset={-100}
             className="cursor-pointer hover:text-oga-yellow-dark"
           >
-            Projects
+            About
           </ScrollLink>
           <ScrollLink
             to={"how-it-works"}
             smooth={true}
             duration={800}
+            offset={-100}
             className="cursor-pointer hover:text-oga-yellow-dark"
           >
             How It Works
           </ScrollLink>
-          <ScrollLink
-            to={"impact"}
-            smooth={true}
-            duration={800}
+          <Link
+            href="/projects"
+            className="cursor-pointer hover:text-oga-yellow-dark"
+          >
+            Projects
+          </Link>
+
+          <Link
+            href="/imapct"
             className="cursor-pointer hover:text-oga-yellow-dark"
           >
             Impact
-          </ScrollLink>
-          <ScrollLink
-            to={"about"}
-            smooth={true}
-            duration={800}
-            className="cursor-pointer hover:text-oga-yellow-dark"
-          >
-            About
-          </ScrollLink>
+          </Link>
         </div>
-        <Button className="hidden md:inline-flex bg-oga-green  border border-oga-green-dark  text-white text-lg rounded-full hover:bg-oga-yellow-dark hover:text-gray-900 px-4 py-2  md:text-lg md:px-6 md:py-3">
-          Build with us
-        </Button>
+        <Link href="https://forms.gle/moCpCKMtVwCpVa92A" target="blank">
+          <Button className="hidden md:inline-flex bg-oga-green p-4  border border-oga-green-dark  text-white text-lg rounded-full hover:bg-oga-yellow-dark hover:text-gray-900  lg:text-lg lg:px-6 lg:py-3">
+            Build with us
+          </Button>
+        </Link>
 
-        <MobileNav/>
+        <div className="block md:hidden">
+          <MobileNav />
+        </div>
       </nav>
     </header>
   );

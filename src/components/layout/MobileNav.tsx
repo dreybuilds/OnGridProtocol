@@ -8,6 +8,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { IconBrandTelegram, IconBrandX } from "@tabler/icons-react";
 import { ArrowRight, MenuIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -20,34 +21,28 @@ export function MobileNav() {
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <MenuIcon
-          className="text-6xl block md:hidden cursor-pointer text-white"
+          className="text-6xl block  cursor-pointer text-white"
           size={32}
         />
       </SheetTrigger>
-      <SheetContent className="bg-zinc-950 text-white border-0">
+      <SheetContent className="bg-zinc-900 text-white border-0">
         <SheetHeader>
           <SheetTitle></SheetTitle>
-          {/* <SheetDescription>
-            Make changes to your profile here. Click save when you're done.
-          </SheetDescription> */}
         </SheetHeader>
 
         <div className="flex flex-col gap-10 mt-12">
-          <ScrollLink
-            to="home"
-            smooth={true}
-            duration={500}
-            className="hover:underline text-lg cursor-pointer hover:text-blue-400"
-            onClick={() => setIsOpen(false)}
+          <Link
+            href="/projects"
+            className="text-lg cursor-pointer hover:text-green-400"
           >
             Projects
-          </ScrollLink>
+          </Link>
 
           <ScrollLink
             to="audits"
             smooth={true}
             duration={500}
-            className="hover:underline text-lg cursor-pointer hover:text-blue-400"
+            className="hover:underline text-lg cursor-pointer hover:text-green-400"
             onClick={() => setIsOpen(false)}
           >
             How It Works
@@ -57,7 +52,7 @@ export function MobileNav() {
             to="reviews"
             smooth={true}
             duration={500}
-            className="hover:underline text-lg cursor-pointer hover:text-blue-400"
+            className="hover:underline text-lg cursor-pointer hover:text-green-400"
             onClick={() => setIsOpen(false)}
           >
             Impact
@@ -67,49 +62,37 @@ export function MobileNav() {
             to="reviews"
             smooth={true}
             duration={500}
-            className="hover:underline text-lg cursor-pointer hover:text-blue-400"
+            className="hover:underline text-lg cursor-pointer hover:text-green-400"
             onClick={() => setIsOpen(false)}
           >
             About
           </ScrollLink>
 
-          <Link
-            href="https://app.deform.cc/form/6d07745a-8a46-4445-b064-4755c72e8c4b/?page_number=0"
-            target="blank"
-          >
+          <Link href="https://forms.gle/moCpCKMtVwCpVa92A" target="blank">
             <Button className=" bg-oga-green p-4  border border-oga-green-dark  text-white text-lg rounded-full hover:bg-oga-yellow-dark hover:text-gray-900  md:text-lg md:px-6 md:py-3">
               Build with us <ArrowRight className="ml-4" />
             </Button>
           </Link>
         </div>
 
-          <div className=" flex gap-6 text-white mt-12">
-            <Link
-              href="https://t.me/audits33"
-              target="blank"
-              className="text-3xl hover:underline text-white block underline-offset-4"
-              prefetch={false}
-            >
-              <i className="bi bi-telegram"></i>
-            </Link>
-            <Link
-              href="https://github.com/leeftk/leeftk/blob/main/README.md"
-              target="blank"
-              className="text-3xl hover:underline underline-offset-4"
-              prefetch={false}
-            >
-              <i className="bi bi-github"></i>
-            </Link>
-            <Link
-              href="https://x.com/solidityauditor"
-              target="blank"
-              className="text-2xl hover:underline underline-offset-4"
-              prefetch={false}
-            >
-              <i className="bi bi-twitter-x"></i>
-            </Link>
-          </div>
-        {/* </SheetFooter> */}
+        <div className=" flex gap-6 text-white mt-12">
+          <Link
+            href="https://t.me/ongridprotocol"
+            target="blank"
+            className="hover:text-white transition-colors"
+          >
+            <IconBrandTelegram className="h-6 w-6" />
+            <span className="sr-only">Discord</span>
+          </Link>
+          <Link
+            href="https://x.com/OngridProtocol"
+            target="blank"
+            className="hover:text-white transition-colors"
+          >
+            <IconBrandX className="h-6 w-6" />
+            <span className="sr-only">Twitter</span>
+          </Link>
+        </div>
       </SheetContent>
     </Sheet>
   );
