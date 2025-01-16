@@ -8,7 +8,11 @@ import Image from "next/image";
 import logo from "../../../public/ongrid-logo.png";
 import { MobileNav } from "./MobileNav";
 
-export default function Header() {
+interface NavBarProps {
+  isHome?: boolean;
+}
+
+export default function Header({ isHome =false }: NavBarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -33,24 +37,45 @@ export default function Header() {
           <Image src={logo} alt="Ongrid-logo" className="w-32 lg:w-40" />
         </Link>
         <div className="hidden md:flex space-x-12 text-white md:text-lg">
-          <ScrollLink
-            to={"about"}
-            smooth={true}
-            duration={800}
-            offset={-100}
-            className="cursor-pointer hover:text-oga-yellow-dark"
-          >
-            About
-          </ScrollLink>
-          <ScrollLink
-            to={"how-it-works"}
-            smooth={true}
-            duration={800}
-            offset={-100}
-            className="cursor-pointer hover:text-oga-yellow-dark"
-          >
-            How It Works
-          </ScrollLink>
+          {isHome ? (
+            <>
+              <ScrollLink
+                to={"about"}
+                smooth={true}
+                duration={800}
+                offset={-100}
+                className="cursor-pointer hover:text-oga-yellow-dark"
+              >
+                About
+              </ScrollLink>
+              <ScrollLink
+                to={"how-it-works"}
+                smooth={true}
+                duration={800}
+                offset={-100}
+                className="cursor-pointer hover:text-oga-yellow-dark"
+              >
+                How It Works
+              </ScrollLink>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/?#about"
+                className="hidden md:block font-medium cursor-pointer hover:text-oga-yellow-dark"
+              >
+                About
+              </Link>
+        
+              <Link
+                href="/?#how-it-works"
+                className="hidden md:block font-medium cursor-pointer hover:text-oga-yellow-dark"
+              >
+                How It Works
+              </Link>
+            </>
+          )}
+
           <Link
             href="/projects"
             className="cursor-pointer hover:text-oga-yellow-dark"
@@ -59,7 +84,7 @@ export default function Header() {
           </Link>
 
           <Link
-            href="/imapct"
+            href="/impact"
             className="cursor-pointer hover:text-oga-yellow-dark"
           >
             Impact
@@ -72,7 +97,7 @@ export default function Header() {
         </Link>
 
         <div className="block md:hidden">
-          <MobileNav />
+          <MobileNav isHome={isHome} />
         </div>
       </nav>
     </header>

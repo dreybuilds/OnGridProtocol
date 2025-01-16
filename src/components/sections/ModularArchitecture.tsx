@@ -7,7 +7,7 @@ import decentralized from "../../../public/landing/decentralized.png";
 
 export default function ModularArchitecture() {
   return (
-    <div className="relative mx-auto px-4 pb-12 pt-16 md:min-h-screen bg-green-950 bg-opacity-20 overflow-hidden">
+    <div className="relative mx-auto px-4 pb-12 pt-16 lg:pt-24 md:min-h-screen bg-green-950 bg-opacity-20 overflow-hidden">
       <h2 className="text-center text-3xl md:text-5xl font-bold mb-16 leading-tight bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
         OnChain Modular Architecture
       </h2>

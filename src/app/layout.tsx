@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${b612.variable} font-b612 antialiased`}>
+      <body className={`${b612.variable} font-b612 bg-neutral-950 antialiased`}>
         {children}
       </body>
     </html>

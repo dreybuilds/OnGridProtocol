@@ -11,7 +11,6 @@ import CoreFeatures from "./sections/CoreFeatures";
 import ModularArchitecture from "./sections/ModularArchitecture";
 import JoinOngrid from "./sections/JoinOngrid";
 import { ScrollAnimate } from "./ui/scroll-animation";
-// import StakeDeployTrack from "./sections/HowItWorks";
 
 export default function LandingPage() {
   const controls = useAnimation();
@@ -29,38 +28,24 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-neutral-950 flex flex-col">
-      {/* <motion.div
-        className="fixed inset-0 -z-10"
-        animate={controls}
-      /> */}
-      <Header />
+      <Header isHome={true} />
       <main className="flex-grow">
         <Hero />
         <ScrollAnimate id="about" delay={0.5}>
-        <AboutSection />
+          <AboutSection />
         </ScrollAnimate>
 
         <ScrollAnimate id="how-it-works" delay={0.5}>
-        <ModularArchitecture />
+          <ModularArchitecture />
         </ScrollAnimate>
 
         <ScrollAnimate delay={0.5}>
-        <CoreFeatures />
+          <CoreFeatures />
         </ScrollAnimate>
-
-        {/* <ScrollAnimate delay={0.5}>
-          <StakeDeployTrack/>
-        </ScrollAnimate> */}
 
         <ScrollAnimate delay={0.5}>
-        <JoinOngrid />
+          <JoinOngrid />
         </ScrollAnimate>
-        {/* <HowItWorks />
-        <InvestmentBenefits />
-        <Impact /> */}
-        {/* <Projects /> */}
-        {/* <CallToAction /> */}
-        {/* <Blog /> */}
       </main>
       <Footer />
     </div>

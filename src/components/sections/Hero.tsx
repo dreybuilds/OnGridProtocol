@@ -63,7 +63,7 @@ export default function Hero() {
       <FloatingSphere
         size={120}
         color="#022c22"
-        top="100px"
+        top="150px"
         left="8vw"
         delay={100}
         icon="/landing/bulb-green.png"

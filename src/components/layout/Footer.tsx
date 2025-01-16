@@ -47,19 +47,21 @@ export default function Footer() {
             <p className="text-gray-400 mb-8 text-center md:text-left">
               Stay updated on Ongrid Protocol latest updates.
             </p>
-            <div className="lg:bg-gray-100 lg:rounded-full lg:h-16 lg:p-2.5 sm:flex-row gap-6 lg:gap-0 flex flex-col items-center justify-between max-w-lg sm:max-w-7xl ">
-              <input
-                type="text"
-                name="email"
-                className="py-2.5 px-6 bg-gray-100 rounded-full text-gray-900 placeholder:text-gray-500 focus:outline-none flex-1 w-[90%] max-w-lg mx-auto lg:w-auto lg:py-5 lg:px-7 lg:bg-transparent"
-                placeholder="Your email here..."
-              />
-              <button
-                type="submit"
-                className="w-fit py-2.5 px-7 bg-oga-green shadow-md rounded-full text-white font-semibold hover:bg-oga-yellow-dark hover:text-gray-900"
-              >
-                Subscribe
-              </button>
+
+            <div className="space-y-2">
+              <div className="relative max-w-lg mx-auto w-full">
+                <input
+                  className="flex h-12 w-full md:w-96 rounded-full border border-input px-3 py-2 text-sm shadow-sm shadow-black/5 transition-shadow placeholder:text-muted-foreground/70 focus-visible:outline-none"
+                  placeholder="Enter your email"
+                  type="email"
+                />
+                <button
+                  className="absolute inset-y-0 end-0 flex h-10 mt-1 mr-1 w-28 text-white bg-oga-green items-center justify-center rounded-full border border-transparent"
+                  aria-label="Subscribe"
+                >
+                  Subscribe
+                </button>
+              </div>
             </div>
           </div>
         </div>

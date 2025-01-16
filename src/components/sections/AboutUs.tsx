@@ -64,7 +64,7 @@ export function AboutSection() {
 
   return (
     <GradientSection>
-      <section className="min-h-fit relative flex flex-row items-center justify-center">
+      <section className=" relative flex flex-row items-center justify-center">
         {/* <div className="glowing-ellipse h-[100px] w-[100px]"></div> */}
         {/* <div className="glowing-ellipse h-[100px] w-[100px] top-[25%] ml-0 mr-0 left-0 right-0"></div> */}
         <section className="py-12 md:py-24 sm:px-6 lg:px-8">

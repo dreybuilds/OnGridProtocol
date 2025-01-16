@@ -14,7 +14,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 
-export function MobileNav() {
+interface NavBarProps {
+  isHome?: boolean;
+}
+
+export function MobileNav({ isHome }: NavBarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -31,42 +35,57 @@ export function MobileNav() {
         </SheetHeader>
 
         <div className="flex flex-col gap-10 mt-12">
+          {isHome === true ? (
+            <>
+              <ScrollLink
+                to={"about"}
+                smooth={true}
+                duration={800}
+                offset={-100}
+                className="cursor-pointer hover:text-oga-yellow-dark"
+              >
+                About
+              </ScrollLink>
+              <ScrollLink
+                to={"how-it-works"}
+                smooth={true}
+                duration={800}
+                offset={-100}
+                className="cursor-pointer hover:text-oga-yellow-dark"
+              >
+                How It Works
+              </ScrollLink>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/?#about"
+                className="font-medium cursor-pointer hover:text-oga-yellow-dark"
+              >
+                About
+              </Link>
+
+              <Link
+                href="/?#how-it-works"
+                className="font-medium cursor-pointer hover:text-oga-yellow-dark"
+              >
+                How It Works
+              </Link>
+            </>
+          )}
           <Link
             href="/projects"
-            className="text-lg cursor-pointer hover:text-green-400"
+            className="text-lg cursor-pointer hover:text-oga-yellow-dark"
           >
             Projects
           </Link>
 
-          <ScrollLink
-            to="audits"
-            smooth={true}
-            duration={500}
-            className="hover:underline text-lg cursor-pointer hover:text-green-400"
-            onClick={() => setIsOpen(false)}
-          >
-            How It Works
-          </ScrollLink>
-
-          <ScrollLink
-            to="reviews"
-            smooth={true}
-            duration={500}
-            className="hover:underline text-lg cursor-pointer hover:text-green-400"
-            onClick={() => setIsOpen(false)}
+          <Link
+            href="/impact"
+            className="text-lg cursor-pointer hover:text-oga-yellow-dark"
           >
             Impact
-          </ScrollLink>
-
-          <ScrollLink
-            to="reviews"
-            smooth={true}
-            duration={500}
-            className="hover:underline text-lg cursor-pointer hover:text-green-400"
-            onClick={() => setIsOpen(false)}
-          >
-            About
-          </ScrollLink>
+          </Link>
 
           <Link href="https://forms.gle/moCpCKMtVwCpVa92A" target="blank">
             <Button className=" bg-oga-green p-4  border border-oga-green-dark  text-white text-lg rounded-full hover:bg-oga-yellow-dark hover:text-gray-900  md:text-lg md:px-6 md:py-3">
