@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
 
+
 // Load B612 font family
 const b612 = localFont({
   src: [
@@ -31,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${b612.variable} font-b612 antialiased`}>
+      <body className={`${b612.variable} font-b612 bg-neutral-950 antialiased`}>
         {children}
       </body>
     </html>

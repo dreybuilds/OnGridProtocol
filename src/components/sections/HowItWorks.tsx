@@ -1,54 +1,71 @@
-'use client'
+"use client";
+import React from "react";
+import { BentoGrid, BentoGridItem } from "../ui/bento-grid";
+import Image from "next/image";
 
-import { motion } from 'framer-motion'
-import { FileText, Search, Check, BarChart, TrendingUp } from 'lucide-react'
-import { gradients } from '@/styles/gradients'
+const Skeleton = () => (
+  <div className="flex flex-1 w-full h-full min-h-[10rem] rounded-xl bg-gradient-to-br from-neutral-900 to-neutral-800">
+    <Image
+      src="https://pbs.twimg.com/profile_images/1417752099488636931/cs2R59eW_400x400.jpg"
+      alt="avatar"
+      height="100"
+      width="100"
+      className="h-full w-full object-cover rounded-lg"
+    />
+  </div>
+);
 
-const steps = [
-  { icon: FileText, title: 'Project Listing', description: 'Energy infrastructure developers gather data and propose projects' },
-  { icon: Search, title: 'Rigorous Review', description: 'Our team thoroughly vets and approves each project' },
-  { icon: Check, title: 'Investment Selection', description: 'Choose projects that align with your goals' },
-  { icon: BarChart, title: 'Progress Monitoring', description: 'Track project development in real-time via the investor dashboard' },
-  { icon: TrendingUp, title: 'Returns & Impact', description: 'Receive returns and monitor your impact' },
-]
+const items = [
+  {
+    title: "Tokenized Asset Staking",
+    description: "Explore the birth of groundbreaking ideas and inventions.",
+    header: <Skeleton />,
+  },
+  {
+    title: "Project Tracking",
+    description: "Dive into the transformative power of technology.",
+    header: <Skeleton />,
+  },
+  {
+    title: "Green DAO Participation",
+    description: "Join the quest for understanding and enlightenment.",
+    header: <Skeleton />,
+  },
+  {
+    title: "AI Insights",
+    description: "Discover the beauty of thoughtful and functional design.",
+    header: <Skeleton />,
+  },
+  {
+    title: "DePin Carbon Mining",
+    description:
+      "Understand the impact of effective communication in our lives.",
+    header: <Skeleton />,
+  },
+];
 
-export default function HowItWorks() {
+export default function StakeDeployTrack() {
   return (
-    <section id="how-it-works" className="py-16 bg-gray-800 text-white">
-      <div className="container mx-auto px-4">
-        <motion.h2 
-          className="text-3xl font-bold text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          style={{ background: gradients.primary, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-        >
-          Stake, Build, Deploy, and Track Green Energy Solutions On-Chain
-        </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
-          {steps.map((step, index) => (
-            <motion.div 
-              key={index} 
-              className="flex flex-col items-center text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <motion.div 
-                className="bg-oga-green text-white rounded-full p-4 mb-4"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <step.icon className="h-8 w-8" />
-              </motion.div>
-              <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-              <p>{step.description}</p>
-            </motion.div>
+    <section
+      id="how-it-works"
+      className="relative mx-auto px-4 pb-12 pt-16 min-h-screen"
+    >
+      <h2 className="text-center text-3xl md:text-5xl font-bold mb-16 leading-tight bg-gradient-to-r from-zinc-100 to-gray-400 bg-clip-text text-transparent">
+        Stake, Build, Deploy & Track
+      </h2>
+      <div>
+        <BentoGrid className="max-w-5xl mx-auto">
+          {items.map((item, i) => (
+            <BentoGridItem
+              key={i}
+              title={item.title}
+              description={item.description}
+              header={item.header}
+              className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+            />
           ))}
-        </div>
+        </BentoGrid>
       </div>
     </section>
-  )
+  );
 }

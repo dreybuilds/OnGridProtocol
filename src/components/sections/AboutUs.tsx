@@ -1,78 +1,141 @@
-'use client'
+import { Users, Brain, Shield, Leaf } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import GradientSection from "../ui/gradient-section";
 
-import { motion } from 'framer-motion'
-import { Button } from "@/components/ui/button"
-import Image from 'next/image'
-import { gradients } from '@/styles/gradients'
+export function AboutSection() {
+  const advantages = [
+    {
+      icon: Users,
+      title: "Decentralized Ownership",
+      description:
+        "Community stakes in renewable assets, enabling widespread participation in green energy initiatives.",
+    },
+    {
+      icon: Brain,
+      title: "AI-Assisted Green Systems",
+      description:
+        "Real-time insights optimize clean energy deployment through advanced artificial intelligence.",
+    },
+    {
+      icon: Shield,
+      title: "Secure, Scalable Transactions",
+      description:
+        "Ethereum Layer 2 ensures speed and affordability for all network operations.",
+    },
+  ];
 
-export default function AboutUs() {
+  const [activeCard, setActiveCard] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveCard((current) => (current + 1) % advantages.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [advantages.length]);
+
+  const cardVariants = {
+    initial: {
+      opacity: 0.7,
+      scale: 1,
+      y: 0,
+    },
+    active: {
+      opacity: 1,
+      scale: 1.02,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
+    },
+    inactive: {
+      opacity: 0.7,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <section id="about" className="py-16 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4">
-        <motion.h2 
-          className="text-3xl font-bold text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          style={{ background: gradients.primary, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-        >
-          About OnGridAfrica
-        </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-2xl font-semibold mb-4">Our Mission</h3>
-            <p className="mb-6">
-              At OnGridAfrica, we&apos;re on a mission to revolutionize renewable energy investment in Africa. We believe in the power of community-driven investments to create sustainable change and economic growth across the continent.
-            </p>
-            <h3 className="text-2xl font-semibold mb-4">Our Vision</h3>
-            <p className="mb-6">
-              We envision an Africa where clean, reliable energy is accessible to all, driving economic prosperity and environmental sustainability. Through our platform, we aim to connect visionary investors with impactful renewable energy projects.
-            </p>
-            <h3 className="text-2xl font-semibold mb-4">Our Values</h3>
-            <ul className="list-disc list-inside mb-6 space-y-2">
-              <li>Sustainability: We prioritize environmentally responsible practices in all our projects.</li>
-              <li>Transparency: We believe in open communication and accountability in all our operations.</li>
-              <li>Innovation: We continuously seek new ways to improve and expand our impact.</li>
-              <li>Community: We put the needs and development of local communities at the forefront of our projects.</li>
-            </ul>
-            <Button size="lg" className="bg-oga-green hover:bg-oga-green/90 transition-colors duration-200 text-white">
-              Join Our Mission
-            </Button>
-          </motion.div>
-          <motion.div
-            className="relative h-[400px] rounded-lg overflow-hidden shadow-xl"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <Image
-              src="/Kenya-Solar.jpeg"
-              alt="OnGridAfrica team working on a solar project"
-              layout="fill"
-              objectFit="cover"
-            />
-          </motion.div>
-        </div>
-        <motion.div 
-          className="mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-semibold text-center mb-8">Our Story</h3>
-          <p className="max-w-3xl mx-auto text-center">
-            OnGridAfrica was founded in 2024 by a group of passionate entrepreneurs and renewable energy experts. Witnessing the immense potential for clean energy in Africa, coupled with the challenges of traditional investment models, we set out to create a platform that would democratize access to renewable energy investments. Our journey began with a single solar project in rural Kenya, and has since grown to encompass multiple countries and technologies across the continent. Today, we&apos;re proud to be at the forefront of the renewable energy revolution in Africa, connecting investors worldwide with impactful projects that are lighting up communities and powering a sustainable future.
-          </p>
-        </motion.div>
-      </div>
-    </section>
-  )
+    <GradientSection>
+      <section className=" relative flex flex-row items-center justify-center">
+        {/* <div className="glowing-ellipse h-[100px] w-[100px]"></div> */}
+        {/* <div className="glowing-ellipse h-[100px] w-[100px] top-[25%] ml-0 mr-0 left-0 right-0"></div> */}
+        <section className="py-12 md:py-24 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+              <div className="relative">
+                <div className="absolute -top-4 -left-4 w-24 h-24 bg-green-500/10 rounded-full blur-2xl" />
+                <div className="relative">
+                  <div className="inline-flex items-center justify-center p-2 bg-green-500/10 rounded-lg mb-6">
+                    <Leaf className="w-5 h-5 text-green-500 mr-2" />
+                    <span className="text-green-500 font-medium">
+                      About OnGrid Protocol
+                    </span>
+                  </div>
+                  <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent">
+                    Bridging Real-World Renewable Energy with On-Chain Finance
+                  </h2>
+                  <p className="text-gray-400 text-base md:text-lg mb-8 leading-relaxed">
+                    OnGrid Protocol (OGP) bridges real-world renewable energy
+                    projects with on-chain finance. By leveraging DePin devices
+                    for carbon credit mining, AI-driven insights, and scalable
+                    Layer 2 infrastructure, we aim to create a sustainable,
+                    carbon-neutral future.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid gap-6">
+                {advantages.map((advantage, index) => (
+                  <motion.div
+                    initial="initial"
+                    animate={activeCard === index ? "active" : "inactive"}
+                    variants={cardVariants}
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ duration: 0.2 }}
+                    key={index}
+                  >
+                    <Card
+                      className={`bg-transparent cursor-pointer border-0 backdrop-blur-sm 
+        ${
+          activeCard === index
+            ? "shadow-xl shadow-green-500/20 border border-green-500/70"
+            : ""
+        }`}
+                    >
+                      <CardContent className="p-6">
+                        <div className="flex items-start gap-4">
+                          <div className="p-2 rounded-lg bg-green-500/10">
+                            <advantage.icon
+                              size={36}
+                              className="text-green-500"
+                            />
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-semibold text-white mb-2">
+                              {advantage.title}
+                            </h3>
+                            <p className="text-gray-200">
+                              {advantage.description}
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </GradientSection>
+  );
 }
