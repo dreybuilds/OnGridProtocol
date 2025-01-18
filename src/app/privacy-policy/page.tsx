@@ -1,7 +1,6 @@
-import Footer from "@/components/layout/Footer";
-import Header from "@/components/layout/Header";
-import { Separator } from "@/components/ui/separator";
-
+import Footer from "@/components/layout/Footer"
+import Header from "@/components/layout/Header"
+import { Separator } from "@/components/ui/separator"
 export default function TermsOfService() {
   return (
     <>
@@ -28,7 +27,7 @@ export default function TermsOfService() {
                 Please take a few minutes to review the details of our privacy
                 practices below. By using the websites, mobile applications, or
                 other services of OnGrid Protocol (hereinafter referred to as
-                "OGP Service" or "Service"), you acknowledge and agree that you
+                &ldquo;OGP Service&ldquo; or &ldquo;Service&ldquo;), you acknowledge and agree that you
                 have consented to the collection, use, disclosure, transfer, and
                 storage practices set out in this Privacy Policy. Particularly,
                 if you are under 18 years old, you should read these terms under
@@ -46,18 +45,18 @@ export default function TermsOfService() {
                 <div>
                   <p className="text-base font-medium">
                     <span className="font-bold text-white text-lg">
-                      1.1 "OnGrid Protocol Service":
+                      1.1 &ldquo;OnGrid Protocol Service&ldquo;:
                     </span>{" "}
                     refers to the legal entity that develops and provides the
                     OnGrid Protocol products and services, hereinafter referred
-                    to as "OGP", "we", "us" or "our"
+                    to as &ldquo;OGP&ldquo;, &ldquo;we&ldquo;, &ldquo;us&ldquo; or &ldquo;our&ldquo;
                   </p>
                 </div>
 
                 <div>
                   <p className="text-base font-medium">
                     <span className="font-bold text-white text-lg">
-                      1.2 "Personal Information"
+                      1.2 &ldquo;Personal Information&ldquo;
                     </span>{" "}
                     refers to all kinds of information recorded by electronic or
                     other means that can identify the identity of a specific
@@ -70,7 +69,7 @@ export default function TermsOfService() {
                 <div>
                   <p className="text-base font-medium">
                     <span className="font-bold text-white text-lg">
-                      1.3 "Non-Personal Information":
+                      1.3 &ldquo;Non-Personal Information&ldquo;:
                     </span>{" "}
                     efers to processed anonymous user information that cannot
                     identify specific individuals and cannot be recovered, such
@@ -82,7 +81,7 @@ export default function TermsOfService() {
                 <div>
                   <p className="text-base font-medium">
                     <span className="font-bold text-white text-lg">
-                      1.4 "Cookie":
+                      1.4 &ldquo;Cookie&ldquo;:
                     </span>{" "}
                     refers to a small data file stored on your device. Most
                     Internet browsers automatically accept cookies. We use
@@ -94,9 +93,9 @@ export default function TermsOfService() {
                 <div>
                   <p className="text-base font-medium">
                     <span className="font-bold text-white text-lg">
-                      1.5 "Clear GIFs":
+                      1.5 &ldquo;Clear GIFs&ldquo;:
                     </span>{" "}
-                    (also known as "Web Beacons") are transparent graphic images
+                    (also known as &ldquo;Web Beacons&ldquo;) are transparent graphic images
                     placed on our site, often used in combination with Cookies
                     to help us understand how visitors interact with our
                     service.
@@ -106,7 +105,7 @@ export default function TermsOfService() {
                 <div>
                   <p className="text-base font-medium">
                     <span className="font-bold text-white text-lg">
-                      1.6 "DePIN Data":
+                      1.6 &ldquo;DePIN Data&ldquo;:
                     </span>{" "}
                     refers to information collected from decentralized physical
                     infrastructure (DePIN) devices, including but not limited to
@@ -117,7 +116,7 @@ export default function TermsOfService() {
                 <div>
                   <p className="text-base font-medium">
                     <span className="font-bold text-white text-lg">
-                      1.7 "Blockchain Data":
+                      1.7 &ldquo;Blockchain Data&ldquo;:
                     </span>{" "}
                     Public information recorded on the blockchain related to
                     your account, transactions, node operations, and other
@@ -229,7 +228,7 @@ export default function TermsOfService() {
                   </h3>
                   <p className="text-base font-medium">
                     We may automatically record information about how you
-                    interact with our Service (referred to as "Log Data"),
+                    interact with our Service (referred to as &ldquo;Log Data&ldquo;),
                     including IP addresses, dates, times of interactions, and
                     pages visited. Log Data is used to administer and provide
                     access to the Service and is stored securely under OnGrid
@@ -555,14 +554,14 @@ export default function TermsOfService() {
               <p className="text-base font-medium mb-2 mt-4">
                 If you have any questions or concerns about this Privacy Policy,
                 please contact us:  <strong className="text-white block mt-4 font-bold">Email: {" "}</strong>
-                <a className="" href="href=”mailto:info@ongridprotocol.com">
+                <a className="href=”mailto:info@ongridprotocol.com">
                   info@ongridprotocol.com
                 </a>
               </p>
             </section>
           </div>
 
-          <Separator className="px-4 bg-gray-500 max-w-[90%] mx-auto" />
+          <Separator className="px-4 bg-gray-500 max-w-[90%] mx-auto"/>
           <p className="text-gray-300 italic px-8">
             By using OnGrid Protocol’s Services, you consent to this Privacy
             Policy.

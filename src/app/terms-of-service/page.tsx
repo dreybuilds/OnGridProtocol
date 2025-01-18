@@ -27,13 +27,13 @@ export default function TermsOfService() {
                 The following Terms govern the contractual relationships between
                 you and [OnGrid Protocol Limited, a business company
                 incorporated in the British Virgin Islands] (doing business as
-                "OnGrid Protocol", also referred to as "Company"). The Company
+                  &ldquo;OnGrid Protocol&ldquo;, also referred to as &ldquo;Company&ldquo;). The Company
                 reserves the right to modify or discontinue, temporarily or
                 permanently, the Terms of Service in whole or in part with or
                 without notice at any time. You agree that the Company shall not
                 be liable to you or any third party for any modification,
                 suspension, or discontinuance of service. Please also read
-                OnGrid Protocol's Privacy Policy which details how the Company
+                OnGrid Protocol&lsquo;s Privacy Policy which details how the Company
                 securely handles your personal information. The Company reserves
                 the right to change the Terms of Service, so check back
                 periodically for changes.
@@ -47,25 +47,25 @@ export default function TermsOfService() {
               </p>
               <p className="text-base font-medium mb-2">
                 <span className="font-bold text-white text-lg">
-                  1.1 "OnGrid Protocol Service":{" "}
+                  1.1 &ldquo;OnGrid Protocol Service&ldquo;:{" "}
                 </span>
                 Services operated by the Company, available as web applications
-                (hereinafter, "Website") at www.ongridprotocol.com; as mobile
-                applications on various platforms (hereinafter, "Mobile App");
+                (hereinafter, &ldquo;Website&ldquo;) at <a href="www.ongridprotocol.com">www.ongridprotocol.com</a> ; as mobile
+                applications on various platforms (hereinafter, &ldquo;Mobile App&ldquo;);
                 and through node devices and related software.
               </p>
 
               <p className="text-base font-medium mb-2 mt-4">
                 <span className="font-bold text-white text-lg">
-                  1.2 "Service":{" "}
+                  1.2 &ldquo;Service&ldquo;:{" "}
                 </span>
-                Unless otherwise specified, "Service" in these Terms refers to
+                Unless otherwise specified, &ldquo;Service&ldquo; in these Terms refers to
                 all services provided on the OnGrid Protocol platform.
               </p>
 
               <p className="text-base font-medium mb-2 mt-4">
                 <span className="font-bold text-white text-lg">
-                  1.3 "User" or "you":{" "}
+                  1.3 &ldquo;User&ldquo; or &ldquo;you&ldquo;:{" "}
                 </span>
                 Any natural person, legal entity, or legally responsible
                 partnership who accesses the Service, with or without
@@ -74,7 +74,7 @@ export default function TermsOfService() {
 
               <p className="text-base font-medium mb-2 mt-4">
                 <span className="font-bold text-white text-lg">
-                  1.4 "Node":{" "}
+                  1.4 &ldquo;Node&ldquo;:{" "}
                 </span>
                 Hardware devices or software applications that participate in
                 the OnGrid Protocol network for renewable energy data
@@ -83,7 +83,7 @@ export default function TermsOfService() {
 
               <p className="text-base font-medium mb-2 mt-4">
                 <span className="font-bold text-white text-lg">
-                  1.5 "Node Data":{" "}
+                  1.5 &ldquo;Node Data&ldquo;:{" "}
                 </span>
                 Information collected from OnGrid Protocol nodes, including but
                 not limited to energy data, device status, and verification
@@ -92,7 +92,7 @@ export default function TermsOfService() {
 
               <p className="text-base font-medium mb-2 mt-4">
                 <span className="font-bold text-white text-lg">
-                  1.6 "Blockchain Data":{" "}
+                  1.6 &ldquo;Blockchain Data&ldquo;:{" "}
                 </span>
                 Public information recorded on the blockchain related to your
                 account, transactions, node operations, and other network
