@@ -18,22 +18,22 @@ export default function Footer() {
               <h4 className="text-gray-200 mb-8 text-lg">Quick Links</h4>
               <ul className="grid text-gray-400 gap-4 min-[500px]:gap-6 min-[500px]:text-left">
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="https://ongrid-protocol.gitbook.io/ongrid-protocol" target="blank" className="hover:text-white transition-colors">
                     Docs
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/privacy-policy" className="hover:text-white transition-colors">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/terms-of-service" className="hover:text-white transition-colors">
                     Terms of Service
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="https://forms.gle/moCpCKMtVwCpVa92A" target="blank" className="hover:text-white transition-colors">
                     Partnership Requests
                   </Link>
                 </li>
@@ -77,7 +77,7 @@ export default function Footer() {
                 className="hover:text-white transition-colors"
               >
                 <IconBrandTelegram className="h-6 w-6" />
-                <span className="sr-only">Discord</span>
+                <span className="sr-only">Telegram</span>
               </Link>
               <Link
                 href="https://x.com/OngridProtocol"
