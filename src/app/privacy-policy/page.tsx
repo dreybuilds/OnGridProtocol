@@ -187,7 +187,7 @@ export default function TermsOfService() {
                     2.2 Clear GIFs
                   </h3>
                   <p className="mb-2">
-                    e may use third-party advertising companies to serve ads
+                    We may use third-party advertising companies to serve ads
                     when you visit our service. These companies may use Clear
                     GIFs along with Cookies to measure advertising
                     effectiveness. The data collected via Clear GIFs is
