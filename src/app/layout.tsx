@@ -21,7 +21,7 @@ const b612 = localFont({
 })
 
 export const metadata: Metadata = {
-  title: "OnGridAfrica - Invest in Africa's Renewable Energy Future",
+  title: "OnGridProtocol",
   description: "Join us in transforming the energy sector through community-driven investments.",
 }
 
