@@ -10,18 +10,18 @@ if(NOT EXISTS "/Users/dreybuilds/esp/v5.4/esp-idf/components/bootloader/subproje
   file(MAKE_DIRECTORY "/Users/dreybuilds/esp/v5.4/esp-idf/components/bootloader/subproject")
 endif()
 file(MAKE_DIRECTORY
-  "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/AC_Power/build/bootloader"
-  "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/AC_Power/build/bootloader-prefix"
-  "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/AC_Power/build/bootloader-prefix/tmp"
-  "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/AC_Power/build/bootloader-prefix/src/bootloader-stamp"
-  "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/AC_Power/build/bootloader-prefix/src"
-  "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/AC_Power/build/bootloader-prefix/src/bootloader-stamp"
+  "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/OnGridProtocol/firmware/voltage_read/build/bootloader"
+  "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/OnGridProtocol/firmware/voltage_read/build/bootloader-prefix"
+  "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/OnGridProtocol/firmware/voltage_read/build/bootloader-prefix/tmp"
+  "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/OnGridProtocol/firmware/voltage_read/build/bootloader-prefix/src/bootloader-stamp"
+  "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/OnGridProtocol/firmware/voltage_read/build/bootloader-prefix/src"
+  "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/OnGridProtocol/firmware/voltage_read/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/AC_Power/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/OnGridProtocol/firmware/voltage_read/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/AC_Power/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/Users/dreybuilds/Documents/Personal_Projects/OnGrid/OnGridProtocol/firmware/voltage_read/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

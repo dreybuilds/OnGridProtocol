@@ -1,4 +1,4 @@
-/* * Data converted from /Users/dreybuilds/Documents/Personal_Projects/OnGrid/AC_Power/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from /Users/dreybuilds/Documents/Personal_Projects/OnGrid/OnGridProtocol/firmware/voltage_read/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)

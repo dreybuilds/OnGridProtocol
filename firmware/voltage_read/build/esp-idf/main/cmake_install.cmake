@@ -1,4 +1,4 @@
-# Install script for directory: /Users/dreybuilds/Documents/Personal_Projects/OnGrid/AC_Power/main
+# Install script for directory: /Users/dreybuilds/Documents/Personal_Projects/OnGrid/OnGridProtocol/firmware/voltage_read/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
