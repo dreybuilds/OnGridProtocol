@@ -1,0 +1,10 @@
+CMake Error at /Users/dreybuilds/esp/v5.4/esp-idf/tools/cmake/component.cmake:317 (message):
+  Include directory
+  '/Users/dreybuilds/Documents/Personal_Projects/OnGrid/OnGridProtocol/firmware/temp_read/main/set'
+  is not a directory.
+Call Stack (most recent call first):
+  /Users/dreybuilds/esp/v5.4/esp-idf/tools/cmake/component.cmake:492 (__component_add_include_dirs)
+  main/CMakeLists.txt:1 (idf_component_register)
+
+
+ninja: error: rebuilding 'build.ninja': subcommand failed
