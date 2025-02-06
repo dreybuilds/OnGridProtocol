@@ -1,0 +1,34 @@
+# Build output
+build/
+
+# Configuration files
+sdkconfig
+sdkconfig.old
+
+# Compiled binaries and flash files
+*.bin
+*.elf
+*.map
+
+# Logs and debug files
+*.log
+*.debug
+
+# IDE-specific files
+.vscode/
+.idea/
+*.project
+*.cproject
+
+# Python virtual environment
+venv/
+env/
+
+# Dependency directories
+components/
+managed_components/
+
+# Temporary files
+*.swp
+*.swo
+*.tmp
