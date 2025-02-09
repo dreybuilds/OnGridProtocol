@@ -6,9 +6,10 @@
 #include "freertos/task.h"
 
 // PZEM-004T UART configuration
-#define PZEM_UART_PORT UART_NUM_1
-#define PZEM_TX_PIN GPIO_NUM_17
-#define PZEM_RX_PIN GPIO_NUM_16
+#define PZEM_UART_PORT UART_NUM_2
+#define PZEM_TX_PIN GPIO_NUM_1
+#define PZEM_RX_PIN GPIO_NUM_2
+
 #define PZEM_BAUD_RATE 9600
 #define PZEM_BUF_SIZE 1024
 
@@ -76,10 +77,11 @@ void app_main(void) {
         pzem_send_command((uint8_t *)pzem_read_cmd, sizeof(pzem_read_cmd));
 
         // Wait for the response
-        vTaskDelay(pdMS_TO_TICKS(200));
+        vTaskDelay(pdMS_TO_TICKS(1000));
 
         // Read the response from the PZEM-004T
         int len = pzem_read_data(response, sizeof(response));
+        printf("len: %d\n", len);
 
         if (len > 0) {
             // Parse and print the measurement data
@@ -89,6 +91,6 @@ void app_main(void) {
         }
 
         // Delay before the next reading
-        vTaskDelay(pdMS_TO_TICKS(1000));
+        vTaskDelay(pdMS_TO_TICKS(5000));
     }
 }
