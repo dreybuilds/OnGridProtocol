@@ -1,0 +1,32 @@
+name: OGP  # The name of the workflow (shown in GitHub Actions UI)
+
+on:  
+  push:  # Triggers workflow on push
+    branches:  
+      - main  # Runs only on the "main" branch
+  pull_request:  # Also triggers on PRs to "main"
+    branches:  
+      - main
+  schedule:  
+    - cron: '0 12 * * 1'  # Runs every Monday at 12:00 UTC  
+
+jobs:  
+  build:  
+    runs-on: ubicloud-standard-2  # Runner (OS where workflow runs)
+
+    steps:  
+      - name: Checkout code  
+        uses: actions/checkout@v4  # Checks out repository code  
+
+      - name: Set up Python  
+        uses: actions/setup-python@v4  
+        with:  
+          python-version: '3.10'  
+
+      - name: Install dependencies  
+        run: |  
+          pip install -r requirements.txt  
+
+      - name: Run tests  
+        run: |  
+          pytest
