@@ -59,5 +59,4 @@ void pzem_parse_data(uint8_t *data) {
     float frequency = ((data[12] << 8) | data[13]) / 10.0;
     float power_factor = ((data[14] << 8) | data[15]) / 100.0;
 
-    return voltage, current, power, energy, frequency, power_factor;
 }

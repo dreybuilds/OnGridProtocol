@@ -46,6 +46,7 @@ float ds18b20_read_temp(int sensor_index) {
     float temp;
     ds18b20_trigger_temperature_conversion(sensors[sensor_index]);
     vTaskDelay(pdMS_TO_TICKS(750));  // Wait for conversion
+    
     ds18b20_get_temperature(sensors[sensor_index], &temp);
     return temp;
 }
