@@ -6,59 +6,46 @@
 #include "ds18b20.h"
 #include "onewire_bus.h"
 
-#define ONEWIRE_BUS_GPIO    13  
-#define MAX_DS18B20_SENSORS 2  
 
-static const char *TAG = "DS18B20_READER";
+#define SENSOR_GPIO 13
+#define MAX_DS18B20_SENSORS 2
 
-// Struct to store temperature readings
-typedef struct {
-    float temperature[MAX_DS18B20_SENSORS];
-    int sensor_count;
-} TemperatureReadings;
+static onewire_bus_handle_t bus = NULL;
+static ds18b20_device_handle_t sensors[MAX_DS18B20_SENSORS];
+static int sensor_count = 0;
 
-// Function to initialize and read temperature sensors
-TemperatureReadings temp_read() {
-    TemperatureReadings readings = { .sensor_count = 0 };
+void ds18b20_init() {
+    // Configure 1-Wire bus
+    onewire_bus_config_t bus_config = {
+        .bus_gpio_num = SENSOR_GPIO,
+    };
+    onewire_bus_rmt_config_t rmt_config = {
+        .max_rx_bytes = 10,
+    };
 
-    // Initialize the 1-Wire bus
-    onewire_bus_handle_t bus = NULL;
-    ds18b20_device_handle_t ds18b20s[MAX_DS18B20_SENSORS];
-
-    onewire_bus_config_t bus_config = { .bus_gpio_num = ONEWIRE_BUS_GPIO };
-    onewire_bus_rmt_config_t rmt_config = { .max_rx_bytes = 10 };
-
+    // Initialize 1-Wire bus
     ESP_ERROR_CHECK(onewire_new_bus_rmt(&bus_config, &rmt_config, &bus));
-    ESP_LOGI(TAG, "1-Wire bus initialized on GPIO %d", ONEWIRE_BUS_GPIO);
 
-    // Create a 1-Wire device iterator for device discovery
-    onewire_device_iter_handle_t iter = NULL;
+    // Search for DS18B20 devices
+    onewire_device_iter_handle_t iter;
     ESP_ERROR_CHECK(onewire_new_device_iter(bus, &iter));
 
     onewire_device_t device;
-    esp_err_t search_result;
-
-    // Search for DS18B20 sensors
-    while ((search_result = onewire_device_iter_get_next(iter, &device)) == ESP_OK) {
-        ds18b20_config_t ds_cfg = {};
-        if (ds18b20_new_device(&device, &ds_cfg, &ds18b20s[readings.sensor_count]) == ESP_OK) {
-            ESP_LOGI(TAG, "Found DS18B20[%d], address: %016llX", readings.sensor_count, device.address);
-            readings.sensor_count++;
-            if (readings.sensor_count >= MAX_DS18B20_SENSORS) break;
+    while (onewire_device_iter_get_next(iter, &device) == ESP_OK && sensor_count < MAX_DS18B20_SENSORS) {
+        ds18b20_config_t cfg = {};
+        if (ds18b20_new_device(&device, &cfg, &sensors[sensor_count]) == ESP_OK) {
+            sensor_count++;
         }
     }
+    onewire_del_device_iter(iter);
+}
 
-    ESP_ERROR_CHECK(onewire_del_device_iter(iter));
-    ESP_LOGI(TAG, "Total DS18B20 sensors found: %d", readings.sensor_count);
+float ds18b20_read_temp(int sensor_index) {
+    if (sensor_index >= sensor_count) return -100.0; // Invalid index
 
-    // Read temperature from each DS18B20 sensor
-    for (int i = 0; i < readings.sensor_count; i++) {
-        ESP_ERROR_CHECK(ds18b20_trigger_temperature_conversion(ds18b20s[i]));
-        vTaskDelay(pdMS_TO_TICKS(750));  // Wait for conversion (12-bit mode)
-
-        ESP_ERROR_CHECK(ds18b20_get_temperature(ds18b20s[i], &readings.temperature[i]));
-        ESP_LOGI(TAG, "Temperature from DS18B20[%d]: %.2f°C", i, readings.temperature[i]);
-    }
-
-    return readings;
+    float temp;
+    ds18b20_trigger_temperature_conversion(sensors[sensor_index]);
+    vTaskDelay(pdMS_TO_TICKS(750));  // Wait for conversion
+    ds18b20_get_temperature(sensors[sensor_index], &temp);
+    return temp;
 }

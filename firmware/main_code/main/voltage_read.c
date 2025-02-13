@@ -25,7 +25,7 @@
 // ADC resolution (12 bits for ESP32-S3)
 #define ADC_RESOLUTION 4095
 
-static const char *TAG = "VoltageSensor";
+static const char *TAG_3 = "VoltageSensor";
 
 // Function to initialize the ADC
 void voltage_sensor_init() {
@@ -54,7 +54,7 @@ int voltage_sensor_read_raw(int channel) {
             raw_value = adc1_get_raw(ADC_CHANNEL_4);
             break;
         default:
-            ESP_LOGE(TAG, "Invalid ADC channel");
+            ESP_LOGE(TAG_3, "Invalid ADC channel");
             break;
     }
     return raw_value;
@@ -77,38 +77,8 @@ int voltage_sensor_read_mv(int channel, int raw_value) {
             voltage_mv = (raw_value * ADC_REF_VOLTAGE_4) / ADC_RESOLUTION;
             break;
         default:
-            ESP_LOGE(TAG, "Invalid ADC channel");
+            ESP_LOGE(TAG_3, "Invalid ADC channel");
             break;
     }
     return voltage_mv;
-}
-
-typedef struct {
-    int voltage_mv1;
-    int voltage_mv2;
-    int voltage_mv3;
-    int voltage_mv4;
-    int raw_value1;
-    int raw_value2;
-    int raw_value3;
-    int raw_value4;
-} VoltageReadings;
-
-VoltageReadings voltage_read() {
-    VoltageReadings readings;
-    // Initialize the voltage sensor
-    voltage_sensor_init();
-    // Read the raw ADC values for each channel
-    readings.raw_value1 = voltage_sensor_read_raw(1);
-    readings.raw_value2 = voltage_sensor_read_raw(2);
-    readings.raw_value3 = voltage_sensor_read_raw(3);
-    readings.raw_value4 = voltage_sensor_read_raw(4);
-
-    // Convert the raw ADC values to voltage (in mV)
-    readings.voltage_mv1 = voltage_sensor_read_mv(1, readings.raw_value1);
-    readings.voltage_mv2 = voltage_sensor_read_mv(2, readings.raw_value2);
-    readings.voltage_mv3 = voltage_sensor_read_mv(3, readings.raw_value3);
-    readings.voltage_mv4 = voltage_sensor_read_mv(4, readings.raw_value4);
-
-    return readings;
 }

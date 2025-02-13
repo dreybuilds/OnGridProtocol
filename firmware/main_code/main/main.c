@@ -1,136 +1,90 @@
 #include <stdio.h>
-#include "driver/uart.h"
-#include "driver/gpio.h"
-#include "driver/adc.h"
-#include "esp_log.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "esp_mqtt.h"
-#include "cJSON.h"
-#include "pzem_uart.h"
-#include "ds18b20.h"
+#include "esp_log.h"
 
+// Include header files for sensors
+#include "temp_read.c"    // DS18B20 temperature sensor
+#include "current_read.c" // Current sensor
+#include "voltage_read.c" // Voltage sensor
+#include "brightness.c"   // LDR sensor
+#include "pzem004t.c"     // PZEM-004T energy monitor
 
-// Sensor configurations (from your code)
-#define PZEM_UART_PORT UART_NUM_1
-#define PZEM_TX_PIN GPIO_NUM_17
-#define PZEM_RX_PIN GPIO_NUM_16
-#define PZEM_BAUD_RATE 9600
-#define PZEM_BUF_SIZE 1024
-
-#define LDR_ADC_CHANNEL ADC1_CHANNEL_4
-
-#define EXAMPLE_ONEWIRE_BUS_GPIO 13
-#define EXAMPLE_ONEWIRE_MAX_DS18B20 2
-
-// // MQTT configuration
-// #define MQTT_BROKER "mqtt://your_broker_ip" // Replace with your MQTT broker IP
-// #define MQTT_TOPIC "sensor/data"
-
-// static const char *TAG = "Sensor_MQTT";
-
-// // Global MQTT client handle
-// esp_mqtt_client_handle_t mqtt_client;
-
-// // Function to initialize MQTT
-// void mqtt_init() {
-//     esp_mqtt_client_config_t mqtt_cfg = {
-//         .uri = MQTT_BROKER,
-//     };
-//     mqtt_client = esp_mqtt_client_init(&mqtt_cfg);
-//     esp_mqtt_client_start(mqtt_client);
-//     ESP_LOGI(TAG, "MQTT client initialized");
-// }
-
-// // Function to publish sensor data via MQTT
-// void mqtt_publish_data(cJSON *sensor_data) {
-//     char *json_str = cJSON_Print(sensor_data);
-//     if (json_str) {
-//         esp_mqtt_client_publish(mqtt_client, MQTT_TOPIC, json_str, 0, 1, 0);
-//         ESP_LOGI(TAG, "Published: %s", json_str);
-//         free(json_str);
-//     }
-// }
-
-// Function to read PZEM-004T data (from your code)
-void pzem_read_data(float *voltage, float *current, float *power, float *energy, float *frequency, float *power_factor) {
-    // Your PZEM-004T reading logic here
-    *voltage = 230.0;
-    *current = 1.234;
-    *power = 283.5;
-    *energy = 12.345;
-    *frequency = 50.0;
-    *power_factor = 0.98;
-}
-
-// Function to read LDR data (from your code)
-int ldr_read_data() {
-    return adc1_get_raw(LDR_ADC_CHANNEL);
-}
-
-// Function to read DS18B20 data (from your code)
-float ds18b20_read_data() {
-    return 25.5; // Example temperature
-}
-
-// Function to read current sensor data (from your code)
-int current_sensor_read_data(int channel) {
-    return 500; // Example current in mA
-}
-
-// Function to read voltage sensor data (from your code)
-int voltage_sensor_read_data(int channel) {
-    return 3300; // Example voltage in mV
-}
+// Tag for logging
+static const char *TAG = "MAIN";
 
 void app_main(void) {
-    // Initialize MQTT
-    mqtt_init();
-
-    // Initialize sensors (add your sensor initialization code here)
+    // Initialize all sensors
+    ds18b20_init();          // Initialize DS18B20 temperature sensors
+    current_sensor_init();   // Initialize current sensors
+    voltage_sensor_init();   // Initialize voltage sensors
+    ldr_sensor_init(LDR_ADC_CHANNEL); // Initialize LDR sensor
+    // Initialize UART for PZEM-004T communication
     pzem_uart_init();
-    adc1_config_width(ADC_WIDTH_BIT_12);
-    adc1_config_channel_atten(LDR_ADC_CHANNEL, ADC_ATTEN_DB_11);
+    uint8_t response[25];
+    // Variables to store sensor readings
+    int raw_value1, raw_value2, raw_value3, raw_value4;
+    int voltage_mv1, voltage_mv2, voltage_mv3, voltage_mv4;
+    int current_ma1, current_ma2, current_ma3, current_ma4;
+    int ac_voltage, ac_current, ac_power, ac_energy,ac_frequency, ac_power_factor;
+
+    float temperature;
 
     while (1) {
-        // Create a JSON object to store sensor data
-        cJSON *sensor_data = cJSON_CreateObject();
 
-        // Read PZEM-004T data
-        float voltage, current, power, energy, frequency, power_factor;
-        pzem_read_data(&voltage, &current, &power, &energy, &frequency, &power_factor);
-        cJSON_AddNumberToObject(sensor_data, "voltage", voltage);
-        cJSON_AddNumberToObject(sensor_data, "current", current);
-        cJSON_AddNumberToObject(sensor_data, "power", power);
-        cJSON_AddNumberToObject(sensor_data, "energy", energy);
-        cJSON_AddNumberToObject(sensor_data, "frequency", frequency);
-        cJSON_AddNumberToObject(sensor_data, "power_factor", power_factor);
+        // Send the read command to the PZEM-004T
+        pzem_send_command((uint8_t *)pzem_read_cmd, sizeof(pzem_read_cmd));
+        // Read the response from the PZEM-004T
+        int len = pzem_read_data(response, sizeof(response));
 
-        // Read LDR data
-        int ldr_value = ldr_read_data();
-        cJSON_AddNumberToObject(sensor_data, "ldr_value", ldr_value);
+        if (len > 0) {
+            // Parse and print the measurement data
+            pzem_parse_data(response);
 
-        // Read DS18B20 data
-        float temperature = ds18b20_read_data();
-        cJSON_AddNumberToObject(sensor_data, "temperature", temperature);
+        } else {
+            ESP_LOGE(TAG, "No data received from PZEM-004T");
+        }
 
-        // Read current sensor data
-        int current_ma1 = current_sensor_read_data(1);
-        int current_ma2 = current_sensor_read_data(2);
-        cJSON_AddNumberToObject(sensor_data, "current_ma1", current_ma1);
-        cJSON_AddNumberToObject(sensor_data, "current_ma2", current_ma2);
+        // Read the raw analog value from the LDR
+        int ldr_value = ldr_sensor_read_raw(LDR_ADC_CHANNEL);
 
-        // Read voltage sensor data
-        int voltage_mv1 = voltage_sensor_read_data(1);
-        int voltage_mv2 = voltage_sensor_read_data(2);
-        cJSON_AddNumberToObject(sensor_data, "voltage_mv1", voltage_mv1);
-        cJSON_AddNumberToObject(sensor_data, "voltage_mv2", voltage_mv2);
+        // Convert the raw analog value to voltage
+        float voltage = ldr_sensor_read_voltage(ldr_value);
 
-        // // Publish sensor data via MQTT
-        // mqtt_publish_data(sensor_data);
+        // Classify light intensity
+        const char* intensity = ldr_sensor_classify_intensity(ldr_value);
 
-        // Free the JSON object
-        cJSON_Delete(sensor_data);
+        // Read and process current sensor data
+        raw_value1 = current_sensor_read_raw(ADC_CHANNEL_1);
+        raw_value2 = current_sensor_read_raw(ADC_CHANNEL_2);
+        raw_value3 = current_sensor_read_raw(ADC_CHANNEL_3);
+        raw_value4 = current_sensor_read_raw(ADC_CHANNEL_4);
+
+        voltage_mv1 = current_sensor_read_mv(ADC_CHANNEL_1, raw_value1);
+        voltage_mv2 = current_sensor_read_mv(ADC_CHANNEL_2, raw_value2);
+        voltage_mv3 = current_sensor_read_mv(ADC_CHANNEL_3, raw_value3);
+        voltage_mv4 = current_sensor_read_mv(ADC_CHANNEL_4, raw_value4);
+
+        current_ma1 = current_sensor_read_ma(voltage_mv1, SENSOR_SENSITIVITY_HC);
+        current_ma2 = current_sensor_read_ma(voltage_mv2, SENSOR_SENSITIVITY_HC);
+        current_ma3 = current_sensor_read_ma(voltage_mv3, SENSOR_SENSITIVITY_HC);
+        current_ma4 = current_sensor_read_ma(voltage_mv4, SENSOR_SENSITIVITY_LC);
+
+        // Read and process voltage sensor data
+        raw_value1 = voltage_sensor_read_raw(1);
+        raw_value2 = voltage_sensor_read_raw(2);
+        raw_value3 = voltage_sensor_read_raw(3);
+        raw_value4 = voltage_sensor_read_raw(4);
+
+        voltage_mv1 = voltage_sensor_read_mv(1, raw_value1);
+        voltage_mv2 = voltage_sensor_read_mv(2, raw_value2);
+        voltage_mv3 = voltage_sensor_read_mv(3, raw_value3);
+        voltage_mv4 = voltage_sensor_read_mv(4, raw_value4);
+
+        // Read and process temperature sensor data
+        for (int i = 0; i < 2; i++) {
+            float temperature = ds18b20_read_temp(i);
+        }
 
         // Delay before the next reading
         vTaskDelay(pdMS_TO_TICKS(1000));
